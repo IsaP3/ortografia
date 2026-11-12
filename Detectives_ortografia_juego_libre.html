@@ -1,0 +1,608 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="app-version" content="juego-libre-1"><meta name="theme-color" content="#203e47"><meta name="description" content="Ortografía por bloques y niveles. Juego libre por tandas, sin perfiles ni guardado de progreso."><title>Detectives de la ortografía · Juego libre</title><style>:root{--paper:#f6f3eb;--ink:#203e47;--muted:#617176;--green:#266c60;--line:#dadfd7;--white:#fffefa;--orange:#b85c3f;--soft:#eaf0e9;--shadow:0 14px 40px #253c4110;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper);font-synthesis:none}*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button,a,input,select{-webkit-tap-highlight-color:transparent}button{color:inherit;cursor:pointer}button:disabled{cursor:default}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #ca763a;outline-offset:4px}button{touch-action:manipulation}a{color:inherit}button{border:0;background:none}h1,h2,h3,p{margin:0}h1,h2,h3{font-weight:650}h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-.04em}h1{font-size:clamp(2.5rem,5.8vw,4.7rem);line-height:1.05}h2{font-size:2.1rem;line-height:1.2}h3{font-size:1.25rem;line-height:1.3}p{line-height:1.65}em{font-weight:400;color:var(--orange)}.site-header{max-width:1240px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:23px 42px;gap:24px}.brand{display:flex;align-items:center;gap:11px;text-align:left;padding:0}.brand-mark{width:43px;height:43px;border-radius:50%;background:var(--ink);display:grid;place-items:center;color:var(--paper)}.brand-mark svg{height:29px;width:29px;stroke:currentColor;stroke-width:2.8;fill:none}.brand-label{font-family:Georgia,serif;font-size:1.18rem;letter-spacing:-.03em;line-height:1.05}.brand-label small{font:500 .68rem system-ui;letter-spacing:.12em;text-transform:uppercase;display:block;margin-top:5px}.header-actions{display:flex;align-items:center;gap:13px}.header-help{font-size:.86rem;color:var(--muted);padding:8px}.profile-button{display:flex;align-items:center;gap:8px;font-size:.86rem;font-weight:650;background:var(--white);border:1px solid var(--line);padding:10px 15px;border-radius:30px}.profile-avatar{height:23px;width:23px;border-radius:50%;background:#e6ece2;display:grid;place-items:center}.site-nav{border-block:1px solid var(--line)}.nav-inner{max-width:1156px;margin:auto;display:flex;gap:31px}.nav-inner button{padding:15px 1px 14px;font-weight:550;color:var(--muted);font-size:.87rem;position:relative}.nav-inner button.active{color:var(--ink)}.nav-inner button.active:after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:3px;background:var(--green)}.nav-inner button:disabled{opacity:.65}.counter{font-size:.7rem;border:1px solid var(--line);border-radius:20px;padding:1px 6px;margin-left:3px}main{max-width:1240px;margin:auto;padding:0 42px 56px;min-height:70vh}.hero{display:grid;grid-template-columns:1.5fr 1fr;gap:70px;padding:54px 0 44px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.66rem;font-weight:750;letter-spacing:.15em;line-height:1.5;text-transform:uppercase;color:var(--green)}.tiny-dot{width:6px;height:6px;border-radius:50%;background:var(--orange)}.hero h1{margin:17px 0 19px}.hero-copy>p{font-size:1rem;color:var(--muted);max-width:390px}.hero-meta{display:flex;gap:19px;margin-top:25px;font-size:.75rem;color:var(--muted)}.hero-meta span+span:before{content:'·';margin-right:19px;color:#acb6ae}.session-card{background:#e8eee4;border:1px solid #d6dfcf;border-radius:12px;padding:27px 28px;position:relative;box-shadow:0 6px 22px #2e443b06}.case-stamp{font-size:.62rem;letter-spacing:.13em;font-weight:750;color:#477060;margin-bottom:16px}.session-heading{font-family:Georgia,serif;font-size:1.65rem;line-height:1.15}.session-card p{font-size:.85rem;color:#53695f;margin:10px 0 18px}.session-card label{display:block;font-size:.7rem;font-weight:650;margin-bottom:6px}.session-card select{width:100%;border:1px solid #c7d2c1;border-radius:6px;background:#fafcf7;padding:10px 12px;color:var(--ink);font-size:.83rem;margin-bottom:11px}.primary,.secondary{display:inline-flex;justify-content:center;align-items:center;gap:18px;border-radius:6px;padding:12px 18px;font-weight:650;font-size:.86rem;min-height:45px;line-height:1.35}.primary{background:var(--ink);color:white;border:1px solid var(--ink)}.primary:hover{background:#31535b}.secondary{border:1px solid #bdc9bf;background:#fffdf780;color:var(--ink)}.secondary:hover{background:#edf2e8}.wide{width:100%;justify-content:space-between}.session-card .secondary{margin-top:8px;font-size:.76rem}.mini-stats{display:flex;gap:25px;border-top:1px solid #cfdbc9;padding-top:16px;margin-top:21px;font-size:.68rem;color:#556e60}.mini-stats strong{font-size:1rem;display:block;color:var(--ink);margin-bottom:2px}.section-intro{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:24px}.section-intro h2{margin-top:6px}.text-button{font-size:.8rem;font-weight:650;padding:9px 0;white-space:nowrap}.text-button:hover{text-decoration:underline}.text-button span{margin-left:9px}.blocks-section{padding-top:7px}.block-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.block-card{background:var(--white);border:1px solid var(--line);border-radius:9px;padding:23px 23px 17px;text-align:left;transition:transform .15s,box-shadow .15s;position:relative;overflow:hidden}.block-card:before{content:'';height:3px;position:absolute;left:0;right:0;top:0;background:var(--accent);opacity:0;transition:opacity .15s}.block-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.block-card:hover:before{opacity:1}.block-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}.block-icon{font-family:Georgia,serif;color:var(--accent);font-size:1.32rem;border:1px solid color-mix(in srgb,var(--accent) 25%,transparent);border-radius:6px;min-width:49px;min-height:45px;display:grid;place-items:center;padding:5px 10px;background:color-mix(in srgb,var(--accent) 6%,white)}.case-number{font-size:.58rem;letter-spacing:.1em;color:#7c8884}.block-card h3{font-size:1.1rem}.block-card>p{font-size:.78rem;line-height:1.5;color:var(--muted);margin:7px 0 17px;min-height:36px}.block-foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #e8eae3;padding-top:13px;gap:9px;font-size:.63rem;color:var(--muted)}.circle-arrow{height:25px;width:25px;min-width:25px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--accent);font-size:1rem}.quiet-note{margin:25px 0 0;font-size:.75rem;color:var(--muted);line-height:1.7;display:flex;gap:11px;align-items:center;padding:15px 0}.note-star{color:var(--orange);font-size:1.1rem}.site-footer{border-top:1px solid var(--line);max-width:1156px;margin:auto;padding:21px 0 25px;display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.67rem}.site-footer button{font-size:.7rem}.back{display:inline-flex;gap:8px;font-size:.84rem;padding:12px 0;font-weight:550}.block-page{padding-top:24px}.block-title{display:flex;gap:27px;align-items:center;margin:29px 0 46px}.block-title h1{font-size:3.5rem;margin:10px 0}.block-title p{font-size:.94rem;color:var(--muted)}.large-icon{display:grid;place-items:center;padding:17px;min-width:105px;min-height:105px;background:var(--white);border:1px solid var(--line);border-radius:18px;color:var(--accent);font:2rem Georgia,serif}.section-intro>div>p{color:var(--muted);font-size:.83rem;margin-top:10px}.levels-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.level-card{border:1px solid var(--line);border-radius:10px;padding:23px 19px;background:var(--white);display:flex;flex-direction:column}.level-card.suggested{border-color:#6b9280;box-shadow:0 0 0 1px #6b928026}.level-meta{font-size:.59rem;letter-spacing:.08em;display:flex;align-items:center;justify-content:space-between;min-height:26px;gap:7px;margin-bottom:17px;font-weight:700}.pill{border-radius:20px;background:#e6eee1;color:#336952;font-size:.6rem;letter-spacing:0;padding:4px 7px}.level-card h3{font:1.4rem Georgia,serif;letter-spacing:-.025em}.level-card>p{font-size:.82rem;color:var(--muted);margin:13px 0 22px;flex:1}.level-status{font-size:.64rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin-bottom:15px}.level-card .primary{font-size:.8rem}.play-page{max-width:950px;margin:auto;padding-top:22px}.play-top{display:flex;justify-content:space-between;align-items:center;gap:20px}.play-tools{display:flex;align-items:center;gap:22px}.block-tag{color:var(--accent);background:var(--white);border:1px solid var(--line);padding:6px 10px;border-radius:20px;font-size:.72rem;font-weight:600}.round-progress{display:flex;justify-content:space-between;margin:29px 0 11px;font-size:.72rem;color:var(--muted)}.progress-track{height:5px;border-radius:10px;background:#e0e5dc;margin-bottom:27px;overflow:hidden}.progress-track>div{background:var(--green);height:100%;transition:width .2s}.exercise-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:38px 46px 27px;box-shadow:var(--shadow)}.exercise-card h1{font-size:2.25rem;line-height:1.2;margin:12px 0 12px}.exercise-instruction{font-size:.95rem;color:var(--muted);margin-bottom:24px}.context{background:#f5f6f0;border-left:3px solid #b9c9b2;padding:14px 19px;font-size:1.06rem;line-height:1.9;margin:17px 0 23px}.inline-gap{letter-spacing:3px;color:var(--orange)}.word-puzzle{font:clamp(2.4rem,7vw,4rem) Georgia,serif;text-align:center;padding:25px 0 35px;overflow-wrap:anywhere}.gap{color:var(--orange);display:inline-flex;align-items:center;justify-content:center;min-width:65px;background:#f8ede4;border-radius:8px;margin:0 3px;padding:2px 10px;line-height:1.2;border-bottom:3px solid #c28362}.choice-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}.choice{min-width:95px;min-height:64px;border:1.5px solid #b8c5b9;background:#fffefa;border-radius:8px;font-size:1.7rem;font-weight:600;padding:12px 22px;transition:background .12s}.choice:hover:not(:disabled){background:#f0f3e9}.choice.selected{background:#e1ece2;border-color:var(--green);color:#174e40;box-shadow:0 0 0 1px var(--green)}.choice small{display:block;font-size:.64rem;color:var(--muted);font-weight:400;margin-top:6px}.classify-row .choice{font-size:1.05rem;min-width:160px}.syllable-word{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:6px;padding:25px 0 38px;font:2.8rem Georgia,serif}.syllable-word .tonic{padding:4px 11px 10px;background:#f6e9dc;border-radius:7px;border-bottom:3px solid var(--orange);color:#a0462c}.syllable-separator{color:#9da9a0;padding-inline:3px}.fill-row{display:flex;gap:10px;justify-content:center;align-items:center;margin:15px 0 28px}.letter-input{width:140px;text-align:center;font-size:1.65rem;padding:14px;border:1.5px solid #9dac9d;border-radius:7px;color:var(--ink);background:var(--white)}input:disabled{opacity:.8}.exercise-actions{border-top:1px solid var(--line);padding-top:23px;display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:28px}.exercise-actions>.primary:only-child{margin-left:auto}.answer-note{font-size:.7rem;color:var(--muted);max-width:350px}.accent-word{display:flex;flex-wrap:wrap;justify-content:center;gap:3px;padding:25px 0;font:2.8rem Georgia,serif}.vowel,.letter{font:inherit;min-width:40px;min-height:54px;padding:0 3px;display:grid;place-items:center;border-radius:5px;line-height:1.3}.vowel{border-bottom:2px solid #a2b79f;background:#f2f5eb}.vowel:hover:not(:disabled){background:#e0ead8}.vowel.selected{background:#f3e2cf;color:#974528;border-color:var(--orange)}.no-accent{display:flex;margin:0 auto 20px}.no-accent.selected,.secondary.selected{border-color:var(--green);background:#e0ecdf}.interactive-text,.corrected-text{font-size:1.2rem;line-height:2.4;background:#f7f6f0;border:1px solid #e2e6d9;border-radius:8px;padding:19px 22px;white-space:normal}.word-token{display:inline;padding:3px 3px;margin:0 -1px;border:1px solid transparent;border-radius:4px;font:inherit;line-height:1.9;color:var(--ink)}.word-token:hover:not(:disabled){background:#e5ecdf;border-color:#b7c9af}.word-token.marked{background:#e9dcc4;border-color:#b88c4e}.word-token.found{background:#d9eadc;border-color:#598c65}.word-token.missed{background:#f7e7c6;border-color:#ba822a}.word-token.extra{background:transparent;border:1.5px dashed #7d8178}.corrected-text{line-height:1.9;border-color:#8cab90;background:#edf4e8}.selection-info{display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:var(--muted);margin-top:10px}.detection-result{background:#f1f3eb;padding:14px 18px;border-radius:7px;margin:17px 0;font-size:.87rem;line-height:1.7}.detection-result small{display:flex;gap:15px;flex-wrap:wrap;margin-top:7px;font-size:.65rem}.legend-found{color:#2e7244}.legend-missed{color:#926113}.text-repairs{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:23px}.text-repair-row{display:flex;align-items:center;gap:14px;padding:14px 16px;background:#fafaf5;border:1px solid var(--line);border-radius:7px;min-width:0}.text-repair-row>div{min-width:0;flex:1}.repair-number{font-size:.7rem;border:1px solid var(--line);border-radius:50%;width:23px;height:23px;display:grid;place-items:center;flex-shrink:0;color:var(--muted)}.input-label{display:block;font-size:.76rem;font-weight:600;margin-bottom:8px}.word-input{width:100%;max-width:400px;border:1px solid #9fb09f;border-radius:6px;padding:11px 13px;background:#fffefa;color:var(--ink);font-size:1.03rem;min-height:44px}.repair-field{margin:24px 0}.special-keys{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}.special-keys button{border:1px solid var(--line);min-width:36px;min-height:36px;border-radius:4px;font-size:1rem;background:#f3f6ec}.accent-word.small{justify-content:flex-start;font-size:1.6rem;padding:4px 0 2px;gap:2px}.accent-word.small .vowel,.accent-word.small .letter{min-width:23px;min-height:34px;padding:0 1px}.feedback{margin-top:24px;padding:19px 21px;border-radius:7px;font-size:.87rem;line-height:1.7;outline:0}.feedback p{margin-top:7px}.feedback.success{border:1px solid #a1bd98;background:#eef5e8}.feedback.learning{border:1px solid #dbc39e;background:#fbf2e3}.feedback>strong{font-size:1rem}.feedback ul{padding-left:20px;margin:14px 0 2px}.feedback li{margin:8px 0}.small-note{font-size:.72rem;color:var(--muted);line-height:1.7}.result-page{max-width:800px;text-align:center;margin:auto;padding:44px 0 20px}.result-seal{display:grid;place-items:center;width:77px;height:77px;border:1px solid #b5c5b0;border-radius:50%;background:#e7eee1;margin:0 auto 24px}.result-seal svg{width:47px;height:47px;fill:none;stroke:var(--green);stroke-width:2.5}.result-page h1{font-size:3.4rem;margin:18px 0 21px}.result-page>p{color:var(--muted);font-size:.94rem}.result-stats,.overview-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:32px 0 20px}.result-stats>div,.overview-stats>div{background:var(--white);border:1px solid var(--line);padding:20px 12px;border-radius:9px;display:flex;flex-direction:column;gap:7px}.result-stats strong,.overview-stats strong{font:2.1rem Georgia,serif;color:var(--green)}.result-stats span,.overview-stats span{font-size:.73rem;color:var(--muted)}.result-note{font-size:.8rem!important;margin:22px 0}.result-actions{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;margin:27px 0 35px}.save-reminder{border-top:1px solid var(--line);padding-top:25px;font-size:.86rem}.save-reminder p{color:var(--muted);margin:7px 0 14px;font-size:.8rem}.progress-page{padding-top:40px}.progress-page .section-intro{align-items:flex-end;margin-top:13px}.progress-page h1{font-size:3.5rem}.button-group{display:flex;gap:9px;flex-wrap:wrap}.button-group .secondary{font-size:.75rem}.overview-stats{text-align:center}.overview-stats small{font-size:.62rem;color:var(--muted)}.progress-columns{display:grid;grid-template-columns:1fr 1fr;gap:23px;margin-top:28px}.panel{padding:25px 28px;border:1px solid var(--line);background:var(--white);border-radius:9px}.panel h2{font-size:1.65rem}.progress-blocks{margin-top:20px}.progress-block{display:flex;gap:15px;width:100%;align-items:center;text-align:left;padding:13px 0;border-bottom:1px solid var(--line)}.progress-block:last-child{border:0}.progress-block>span:nth-child(2){flex:1}.progress-block strong{display:block;font-size:.85rem}.progress-block small{display:block;font-size:.68rem;color:var(--muted);margin-top:4px}.mini-icon{color:var(--accent);background:#f4f5ed;min-width:53px;text-align:center;border:1px solid var(--line);border-radius:5px;padding:8px 5px;font:1rem Georgia,serif}.review-words{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.review-words span{padding:5px 10px;font-size:.8rem;border-radius:20px;background:#f5ead8;border:1px solid #e5d6ba}.history-title{margin-top:35px}.history{list-style:none;margin:17px 0 0;padding:0}.history li{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--line);font-size:.85rem;gap:12px}.history strong{font-size:.77rem;font-weight:550}.history small{display:block;color:var(--muted);font-size:.65rem;margin-top:3px}.empty-state{color:var(--muted);font-size:.83rem;padding:24px 0}.storage-note{margin:10px auto;max-width:1100px;padding:12px 18px;background:#f9e4c7;font-size:.8rem;border:1px solid #dcab67;border-radius:6px}.storage-note button{text-decoration:underline;font-weight:700}dialog{width:min(650px,calc(100vw - 32px));max-height:88vh;border:1px solid var(--line);border-radius:12px;background:var(--white);color:var(--ink);padding:28px 31px;box-shadow:0 25px 100px #183b4440}dialog::backdrop{background:#173b4555;backdrop-filter:blur(3px)}.modal-head{display:flex;gap:20px;align-items:flex-start;justify-content:space-between;margin-bottom:19px}.modal-head h2{font-size:1.9rem;line-height:1.2}.modal-close{font-size:1.5rem;min-width:32px;min-height:32px;padding:0}.modal-body p{font-size:.88rem;color:var(--muted)}.modal-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:25px;align-items:center}.lesson-list{margin:12px 0 25px}.lesson-list>div{border-bottom:1px solid var(--line);padding:17px 0}.lesson-list>div:first-child{padding-top:0}.lesson-list>div:last-child{border:0}.lesson-list h3{font-size:.96rem;margin-bottom:7px}.lesson-list p{font-size:.87rem;line-height:1.7}.profile-list{display:flex;flex-direction:column;gap:8px;margin:20px 0 25px;max-height:250px;overflow:auto}.profile-option{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--line);border-radius:6px;text-align:left;font-size:.95rem}.profile-option small{font-size:.66rem;color:var(--muted)}.profile-option.selected{background:#eaf1e4;border-color:#87aa7f}#profile-form .fill-row{justify-content:stretch}#new-profile{width:100%;min-width:0;border:1px solid #9eaf9c;border-radius:6px;padding:12px;font-size:.9rem}.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,15px);opacity:0;pointer-events:none;z-index:100;background:var(--ink);color:white;max-width:calc(100vw - 32px);width:max-content;padding:14px 21px;border-radius:8px;font-size:.87rem;line-height:1.5;box-shadow:var(--shadow);transition:opacity .15s,transform .15s}.toast.visible{opacity:1;transform:translate(-50%,0)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}[hidden]{display:none!important}@media(min-width:1500px){:root{font-size:18px}.site-header,main{max-width:1380px}.nav-inner,.site-footer{max-width:1296px}.hero{gap:110px}}@media(max-width:1000px){.site-header{padding:20px 28px}main{padding:0 28px 40px}.nav-inner,.site-footer{margin-inline:28px}.hero{gap:35px;padding-top:38px}.session-card{padding:23px}.hero h1{font-size:3.8rem}.block-card{padding:19px}.levels-grid{grid-template-columns:repeat(2,1fr)}.level-card>p{min-height:54px}.hero-meta{gap:12px}.hero-meta span+span:before{margin-right:12px}}@media(max-width:730px){.site-header{padding:18px 20px}.brand-label{font-size:1rem}.brand-mark{height:37px;width:37px}.brand-label small{font-size:.54rem}.header-help{display:none}.profile-button{max-width:165px;padding:8px 12px;font-size:.75rem}#profile-name{max-width:95px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.nav-inner{margin:0 20px;gap:25px}.nav-inner button{font-size:.76rem;padding-block:14px}main{padding:0 20px 35px}.hero{grid-template-columns:1fr;gap:29px;padding:35px 0 32px}.hero h1{font-size:3.75rem;line-height:1.02}.hero h1 br{display:none}.hero-copy>p{max-width:470px;font-size:.94rem}.hero-meta{margin-top:19px}.session-card{display:grid;grid-template-columns:1fr 1fr;gap:0 20px;padding:22px}.case-stamp,.session-heading,.session-card>p,.mini-stats{grid-column:1/-1}.session-card>label{grid-column:1}.session-card select{grid-column:1;grid-row:auto}.session-card>.primary{grid-column:2;grid-row:4/6;align-self:end;margin-bottom:11px;min-height:45px}.session-card>.secondary{grid-column:1/-1}.mini-stats{margin-top:10px;padding-top:12px}.mini-stats strong{display:inline;margin-right:5px}.section-intro h2{font-size:1.7rem}.block-grid{grid-template-columns:repeat(2,1fr);gap:12px}.block-card{padding:20px 16px 14px}.block-card>p{font-size:.76rem}.block-foot{font-size:.59rem}.case-number{font-size:.52rem}.block-icon{font-size:1.12rem;min-width:43px;min-height:40px}.block-card h3{font-size:1.05rem}.site-footer{margin:0 20px;gap:16px;font-size:.6rem}.block-title{gap:18px;margin-top:17px;margin-bottom:30px}.block-title h1{font-size:2.5rem}.large-icon{min-width:80px;min-height:80px;padding:10px;font-size:1.6rem}.block-title .eyebrow{font-size:.54rem}.block-title p{font-size:.8rem}.section-intro{gap:12px;align-items:center}.section-intro>div>p{font-size:.78rem}.section-intro>.secondary{font-size:.73rem;padding:9px 12px}.play-tools{gap:13px}.exercise-card{padding:28px 23px 22px}.exercise-card h1{font-size:1.95rem}.exercise-instruction{font-size:.87rem}.interactive-text,.corrected-text{font-size:1.1rem;padding:15px 12px;line-height:2.3}.text-repairs{grid-template-columns:1fr}.word-puzzle{font-size:2.9rem}.classify-row .choice{min-width:125px;font-size:.9rem;padding:12px}.classify-row{gap:8px}.choice small{font-size:.58rem}.context{font-size:.98rem}.exercise-actions{gap:15px}.answer-note{font-size:.65rem}.result-page h1{font-size:2.7rem}.result-stats{gap:10px}.result-stats>div{padding:16px 9px}.result-stats strong{font-size:1.8rem}.result-stats span{font-size:.65rem}.progress-columns{grid-template-columns:1fr}.progress-page .section-intro{display:block}.progress-page .button-group{margin-top:20px}.progress-page h1{font-size:3rem}.overview-stats{gap:9px}.overview-stats>div{padding:16px 10px}.overview-stats strong{font-size:1.8rem}.overview-stats span{font-size:.64rem}.overview-stats small{font-size:.54rem}.quiet-note{font-size:.69rem}.text-button{font-size:.74rem}.accent-word{font-size:2.3rem;gap:1px}.accent-word .vowel,.accent-word .letter{min-width:32px;min-height:47px}}@media(max-width:420px){.block-grid{gap:10px}.block-card{padding:17px 12px 12px}.case-number{font-size:.47rem}.block-foot{font-size:.53rem}.circle-arrow{width:22px;height:22px;min-width:22px}.hero h1{font-size:3.25rem}.nav-inner{gap:20px}.levels-grid{grid-template-columns:1fr}.level-card>p{min-height:0}.session-card{display:block}.session-card>.primary{margin-top:0}.session-card label{margin-top:17px}.mini-stats{margin-top:18px}.header-actions{gap:4px}.brand-label{font-size:.88rem}.brand-label small{font-size:.48rem}.profile-button{max-width:135px}.exercise-actions{align-items:flex-start;flex-direction:column}.exercise-actions>.primary{align-self:flex-end}.classify-row .choice{min-width:100%;min-height:50px;font-size:1rem}.classify-row small{display:inline;margin-left:9px}.play-top{gap:10px}.play-tools{gap:8px}.play-top .back{font-size:.74rem}.block-tag{font-size:.65rem}.syllable-word{font-size:2.2rem}.result-stats{grid-template-columns:1fr 1fr}.result-stats>div:last-child{grid-column:1/-1}.panel{padding:22px 20px}dialog{padding:23px}.modal-head h2{font-size:1.65rem}.vowel,.letter{min-width:26px!important;font-size:2rem}.accent-word.small .vowel,.accent-word.small .letter{min-width:21px!important;font-size:1.5rem}.word-puzzle{font-size:2.4rem}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+/* Tandas de la versión 2 */
+.batch-intro{display:flex;align-items:center;gap:15px;background:#edf1e5;border:1px solid #d6dfc8;border-radius:8px;padding:18px 22px;margin:0 0 25px}.batch-intro>span:first-child{color:var(--orange);font-size:1.3rem}.batch-intro p{font-size:.83rem;flex:1}.version-pill{font-size:.57rem;letter-spacing:.08em;white-space:nowrap;border:1px solid #afc1a8;border-radius:20px;padding:6px 9px;color:var(--green)}.adaptive-banner{display:flex;justify-content:space-between;align-items:center;gap:26px;padding:26px 29px;margin-bottom:35px;border:1px solid #b3c7a9;background:#eaf0e2;border-radius:10px}.adaptive-banner h2{font-size:1.85rem;margin:8px 0}.adaptive-banner p{font-size:.83rem;color:var(--muted);max-width:630px}.adaptive-banner .primary{white-space:nowrap}.adaptive-levels{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:28px 0}.adaptive-levels button{display:flex;justify-content:space-between;gap:10px;align-items:center;background:#edf2e6;border:1px solid #c3d1ba;padding:14px;border-radius:7px;text-align:left}.adaptive-levels strong{font-size:.8rem}.adaptive-levels span{font-size:.7rem;color:var(--green)}.batch-page{padding-top:20px;max-width:1160px;margin:auto}.batch-page-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin:25px 0 23px}.batch-page h1{font-size:2.5rem;margin:9px 0 10px;line-height:1.15}.batch-page-heading p{font-size:.87rem;color:var(--muted);line-height:1.6;max-width:870px}.sheet-count{padding:10px 0 0 10px;color:var(--green);font-size:1.05rem;font-weight:650;white-space:nowrap}.sheet-count small{display:block;font-size:.6rem;color:var(--muted);font-weight:400;margin-top:3px}.batch-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;align-items:stretch}.batch-word{background:var(--white);border:1.5px solid var(--line);border-radius:9px;padding:15px;min-width:0;display:flex;flex-direction:column;gap:10px;transition:border-color .15s,background .15s}.batch-word.is-right{border-color:#7ca276;background:#eff6e9}.batch-word.is-wrong{border-color:#b44b43;background:#fff3ef;box-shadow:0 0 0 1px #b44b4315}.batch-card-top{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:.58rem;color:var(--muted);font-weight:550;letter-spacing:.02em}.batch-card-top>span:first-child{font:400 .82rem Georgia,serif;opacity:.7}.is-right .batch-card-top{color:#386b35}.is-wrong .batch-card-top{color:#9c352d}.batch-context{font-size:.76rem;line-height:1.55;color:#5e706e;min-height:35px}.batch-context strong{color:var(--ink);font-weight:550}.batch-input{width:100%;background:#fffefa;border:1px solid #9cad9a;border-radius:5px;padding:9px 10px;color:var(--ink);font-size:1.35rem;min-height:45px;text-align:center;letter-spacing:.01em}.batch-input:disabled{color:#2b5832;background:#f9fcf6;opacity:1;border-color:#adc4a1}.is-wrong .batch-input{border-color:#ba6c61}.batch-word select{width:100%;border:1px solid #acbaa4;border-radius:5px;background:#fffefa;color:var(--ink);padding:10px;font-size:.8rem;min-height:42px}.batch-word select:disabled{opacity:1;color:#2b5832}.batch-card-feedback{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;min-height:19px;font-size:.58rem;color:var(--muted);line-height:1.5}.is-wrong .batch-card-feedback{color:#97392e}.is-right .batch-card-feedback{color:#3b7137}.batch-card-feedback button{font-size:.63rem;font-weight:700;text-decoration:underline;min-height:29px;padding:0;text-underline-offset:3px}.batch-syllables{font:1.6rem Georgia,serif;line-height:1.5;display:flex;justify-content:center;gap:2px;flex-wrap:wrap;padding:5px 0}.batch-syllables .tonic{color:#a64c30;background:#f6e5d6;border-radius:3px;padding:0 4px;border-bottom:2px solid var(--orange)}.batch-gap{font:1.6rem Georgia,serif;text-align:center;padding:4px 0;overflow-wrap:anywhere}.batch-gap>span{color:var(--orange);background:#f8e9dd;border-bottom:2px solid #c0835e;border-radius:4px;padding:0 6px;margin:0 1px;min-width:20px;display:inline-block}.batch-choices{display:flex;justify-content:center;gap:7px;flex-wrap:wrap}.batch-choices button{border:1px solid #adbea5;background:#fafcf6;min-width:42px;min-height:39px;border-radius:5px;padding:5px 12px;font-size:1.1rem}.batch-choices button.selected{border-color:var(--green);background:#dfeadd;box-shadow:0 0 0 1px var(--green)}.batch-choices button:disabled{opacity:1}.batch-fill{display:flex;align-items:center;justify-content:center;gap:4px;font:1.4rem Georgia,serif;flex-wrap:wrap}.batch-input.letters-only{width:60px;min-width:45px;padding:8px 4px;font:1.25rem system-ui}.no-h-small{align-self:center;border:1px solid #c7d0bf;border-radius:4px;padding:5px 10px;min-height:32px;font-size:.7rem}.no-h-small.selected{background:#e1ebd8;border-color:var(--green)}.quick-vowels{display:flex;gap:5px;justify-content:center;align-items:center;flex-wrap:wrap;min-height:30px}.quick-vowels>span{font-size:.56rem;color:var(--muted);margin-right:1px}.quick-vowels button{min-width:29px;min-height:29px;border:1px solid #d0d9c6;background:#f3f7ec;border-radius:4px;font-size:.95rem;padding:0 5px}.quick-vowels button[aria-pressed=true]{background:#f5ddc9;border-color:#b8774f;color:#974524}.quick-vowels button:disabled{background:#f3f7ec;color:#4a7041;border-color:#c8d5bf}.batch-tools{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:18px 0 10px;font-size:.64rem;color:var(--muted)}.batch-tools button{min-width:31px;min-height:31px;border:1px solid #c7d2be;background:#fdfef9;border-radius:4px;font-size:.95rem;padding:2px 7px}.batch-tools>small{font-size:.58rem;margin-left:6px}.batch-toolbar{display:flex;justify-content:space-between;align-items:center;gap:18px;border-top:1px solid var(--line);padding:21px 0 5px;margin-top:16px}.toolbar-buttons{display:flex;gap:11px;align-items:center;flex-wrap:wrap}.batch-toolbar .primary,.batch-toolbar .secondary{font-size:.81rem}.batch-summary{display:flex;gap:10px 25px;justify-content:space-between;align-items:center;flex-wrap:wrap;background:#fbede5;border:1px solid #d9aa96;border-radius:7px;padding:15px 19px;margin:19px 0 0;font-size:.8rem}.batch-summary strong{font-size:.9rem;color:#8b3e2b}.batch-summary>span{flex:1;text-align:right;font-size:.73rem}.batch-summary small{width:100%;font-size:.61rem;color:var(--muted)}.batch-summary.all-done{border-color:#9cb78c;background:#ebf3e2}.all-done strong,.batch-done{color:#386b35}.batch-done{font-size:.8rem;font-weight:600}.new-text-panel{margin:12px 0 23px}.new-text-panel .interactive-text{font-size:1.2rem;line-height:2}.text-target{border-bottom:2px solid #61975d;padding:2px 3px;background:#e7efdf;border-radius:3px}.text-target.missed{color:#a2392f;border-color:#b7594e;background:#f9e4df}.detection-brief{font-size:.79rem;margin:12px 2px 0;color:var(--muted)}.extra-words{display:flex;flex-wrap:wrap;gap:10px;margin-top:11px;font-size:.68rem;color:#974536}.extra-words span{padding:5px 9px;border:1px dashed #c38b7f;border-radius:4px}.word-explanation{padding:5px 0 24px}.explanation-answer{font:2.7rem Georgia,serif;color:var(--green)!important;margin:15px 0 18px!important}.word-explanation p:last-child{margin-top:14px}.adaptive-result{background:#eaf1e1;border:1px solid #bdcfaf;border-radius:7px;padding:15px 18px;color:#366146!important;margin-top:20px!important;font-size:.9rem!important}.batch-input:focus{outline:2px solid #b77c46;outline-offset:2px}.batch-word .quick-vowels:empty{display:none}
+@media(max-width:1050px){.batch-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.batch-page h1{font-size:2.3rem}.adaptive-banner{padding:23px}.adaptive-banner .primary{font-size:.78rem}}
+@media(max-width:730px){.batch-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.batch-word{padding:14px 12px;gap:9px}.batch-input{font-size:1.2rem}.batch-context{font-size:.74rem}.batch-page h1{font-size:2rem}.batch-page-heading{margin-top:20px}.batch-page-heading p{font-size:.81rem}.sheet-count{font-size:.9rem}.adaptive-banner{display:block}.adaptive-banner .primary{margin-top:18px}.adaptive-banner h2{font-size:1.6rem}.batch-intro{padding:15px;gap:12px;flex-wrap:wrap}.batch-intro p{font-size:.77rem}.version-pill{margin-left:25px}.batch-toolbar{flex-wrap:wrap;align-items:flex-start}.toolbar-buttons{width:100%;justify-content:flex-end}.batch-summary>span{text-align:left;flex-basis:100%}.adaptive-levels{grid-template-columns:repeat(2,1fr)}.adaptive-levels strong{font-size:.72rem}.adaptive-levels span{font-size:.6rem}.quick-vowels{gap:4px}.quick-vowels button{min-width:28px}.batch-tools>small{margin:4px 0 0;width:100%}.text-batch .batch-word{padding:15px}.batch-card-feedback{font-size:.6rem}}
+@media(max-width:420px){.batch-grid{grid-template-columns:1fr 1fr;gap:9px}.batch-word{padding:12px 10px}.batch-card-top{font-size:.52rem}.batch-context{font-size:.72rem}.batch-input{font-size:1.1rem;padding:9px 6px}.batch-fill{font-size:1.15rem}.batch-input.letters-only{width:43px;min-width:38px;font-size:1.1rem}.batch-gap{font-size:1.3rem}.batch-choices button{min-width:35px;font-size:.95rem;padding:4px 9px}.batch-syllables{font-size:1.35rem}.batch-word select{font-size:.72rem;padding:8px 4px}.quick-vowels button{min-width:26px;min-height:29px;font-size:.85rem;padding:0 4px}.quick-vowels>span{font-size:.5rem}.batch-card-feedback button{font-size:.59rem}.batch-page-heading{gap:10px}.batch-page h1{font-size:1.8rem}.batch-toolbar .primary{padding:11px 13px;font-size:.75rem}.batch-summary{padding:13px}.adaptive-levels{grid-template-columns:1fr}.batch-card-feedback{font-size:.56rem}.batch-tools{gap:5px}.batch-tools button{min-width:29px}.batch-page .play-top .back{font-size:.69rem}.batch-page .block-tag{font-size:.6rem}.batch-page .text-button{font-size:.66rem}}
+@media(max-width:340px){.batch-grid{grid-template-columns:1fr}}
+
+.free-options{display:block!important}.free-options label{margin-top:13px}.free-options .primary{margin-top:7px}.free-result{grid-template-columns:1fr 1fr}.free-version{font-size:.68rem;color:var(--green);border:1px solid #b8c8aa;border-radius:20px;padding:7px 11px}.free-header-button{font-size:.75rem;border:1px solid var(--line);border-radius:5px;padding:9px 12px;background:var(--white)}@media(max-width:730px){.free-version{display:none}.free-header-button{font-size:.65rem;padding:8px}.free-options label{margin-top:10px}.free-result{grid-template-columns:1fr 1fr}}</style></head><body><a class="sr-only" href="#app">Saltar al juego</a><header class="site-header"><button class="brand" data-action="home" aria-label="Detectives de la ortografía, inicio"><span class="brand-mark"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="20" cy="20" r="12"/><path d="m29 29 12 12M15 20l4 4 7-8"/></svg></span><span class="brand-label">Detectives de la ortografía<small>Juego libre · Elige y juega</small></span></button><div class="header-actions"><span class="free-version">Juego libre</span><button class="free-header-button" data-action="fullscreen">Pantalla completa</button><button class="free-header-button" data-action="guide">Cómo se juega</button></div></header><nav class="site-nav" aria-label="Navegación principal"><div class="nav-inner"><button class="active" data-action="home">Explorar bloques</button></div></nav><main id="app" tabindex="-1"></main><footer class="site-footer"><span>Juego libre · Cada partida empieza de cero.</span><button data-action="download-app">Descargar HTML ↓</button></footer><dialog id="dialog" aria-labelledby="modal-title"><div class="modal-head"><h2 id="modal-title"></h2><button class="modal-close" data-action="close-modal" aria-label="Cerrar">×</button></div><div id="modal-body" class="modal-body"></div></dialog><div id="toast" class="toast" role="status" aria-live="polite"></div><noscript>Activa JavaScript en el navegador para jugar.</noscript><script>/* Banco de contenido: frases originales y reglas de ortografía. */
+const BLOCKS = [
+{id:'gj', title:'G / J', label:'La pista de la G y la J', color:'#b35c41', icon:'g · j', desc:'Palabras, familias y terminaciones.', options:['g','j']},
+{id:'h', title:'Con H / sin H', label:'La letra silenciosa', color:'#457c67', icon:'h', desc:'Una letra que se escribe, aunque no suene.', options:['h','']},
+{id:'mn', title:'M / N', label:'Letras que hacen equipo', color:'#aa713c', icon:'m · n', desc:'M antes de B y P, y otras combinaciones.', options:['m','n']},
+{id:'rr', title:'R / RR', label:'Una R con carácter', color:'#a55462', icon:'r · rr', desc:'Sonido suave, sonido fuerte y posición.', options:['r','rr']},
+{id:'bv', title:'B / V', label:'Dos letras, muchas pistas', color:'#447892', icon:'b · v', desc:'Familias, terminaciones y significado.', options:['b','v']},
+{id:'czq', title:'C / Z / QU', label:'El código de tres letras', color:'#87703d', icon:'c · z · qu', desc:'Cada sonido y cada vocal tienen su pista.', options:['c','z','qu']},
+{id:'ggu', title:'G / GU / GÜ', label:'El secreto de los dos puntos', color:'#76649b', icon:'g · gu · gü', desc:'G suave y uso de la diéresis.', options:['g','gu','gü']},
+{id:'yll', title:'LL / Y', label:'Palabras con identidad', color:'#3c7f81', icon:'ll · y', desc:'Escritura, familias y palabras en contexto.', options:['ll','y']},
+{id:'tildes', title:'Acentuación', label:'El acento lo cambia todo', color:'#bd6741', icon:'á', desc:'Sílaba tónica, tildes y revisión de textos.', options:[]}
+];
+const RAW = {
+gj:`[g]ente|La {w} esperaba delante del teatro.|Gente se escribe con g. Puedes relacionarla con gentío.|1
+[j]irafa|La {w} alcanza las hojas altas.|Jirafa se escribe con j; recuerda también jirafas.|1
+[j]ardín|Las mariposas volaban por el {w}.|Jardín y jardinero pertenecen a la misma familia y se escriben con j.|1
+[g]igante|En el cuento aparecía un {w} amable.|Gigante se escribe con g; también gigantesco.|1
+[j]abón|Me lavo las manos con agua y {w}.|Jabón se escribe con j; también jabonera.|1
+[g]irasol|El {w} tiene los pétalos amarillos.|Girasol se escribe con g: está relacionado con girar.|1
+[j]uguete|Mi {w} favorito es un tren.|Juguete y juguetería se escriben con j.|1
+co[g]er|Voy a {w} una manzana del frutero.|Coger se escribe con g; algunas formas cambian: cojo, coja.|1
+via[j]e|Preparamos un {w} a la montaña.|Las palabras acabadas en -aje, como viaje, se escriben con j.|1
+[g]elatina|La {w} de fresa está en la nevera.|Gelatina se escribe con g.|1
+relo[j]|El {w} de la pared marca las nueve.|Reloj se escribe con j; también relojería.|1
+ore[j]a|Se puso el pendiente en la {w}.|Oreja y orejera se escriben con j.|1
+paisa[j]e|Desde la cima se veía un hermoso {w}.|Las palabras acabadas en -aje se escriben con j.|2
+mensa[j]e|Te he dejado un {w} en el cuaderno.|Las palabras acabadas en -aje se escriben con j.|2
+persona[j]e|El {w} principal es una científica.|Las palabras acabadas en -aje se escriben con j.|2
+cole[g]io|Hoy hemos ido andando al {w}.|Colegio se escribe con g.|2
+ele[g]ir|Tenemos que {w} un libro para leer.|Elegir se escribe con g; cambia a j en formas como elijo.|2
+prote[g]er|Debemos {w} los árboles del patio.|Los verbos acabados en -ger, como proteger, se escriben con g. Tejer es una excepción.|2
+te[j]er|Mi abuela me enseñó a {w} una bufanda.|Tejer se escribe con j; es una excepción a la pauta de los verbos en -ger.|2
+cru[j]ir|Podíamos oír {w} las hojas secas.|Crujir se escribe con j; es una excepción a la pauta de los verbos en -gir.|2
+reco[g]er|Es hora de {w} los materiales.|Recoger acaba en -ger y se escribe con g.|2
+má[g]ico|El cuento hablaba de un bosque {w}.|Mágico se escribe con g; está relacionado con magia.|2
+agu[j]ero|El ratón salió por un {w} de la pared.|Agujero se escribe con j.|2
+ejercitar|Para este reto vamos a ejercitar la memoria.|Ejercitar se escribe con j.|2
+corre[g]ir|Conviene {w} el borrador antes de entregarlo.|Corregir acaba en -gir y se escribe con g. Algunas formas cambian: corrijo.|3
+diri[g]ir|Le gusta {w} las obras de teatro.|Dirigir acaba en -gir y se escribe con g.|3
+exi[g]ir|Podemos {w} que se cumplan los acuerdos.|Exigir acaba en -gir y se escribe con g.|3
+sur[g]ir|Durante la asamblea puede {w} una buena idea.|Surgir acaba en -gir y se escribe con g.|3
+venta[j]a|Trabajar en equipo puede ser una {w}.|Ventaja y ventajoso se escriben con j.|3
+relo[j]ería|Llevamos el reloj a la {w}.|Relojería conserva la j de reloj.|3
+conse[j]o|Escuché el {w} de mi compañera.|Consejo y aconsejar se escriben con j.|3
+len[g]uaje|El {w} nos ayuda a comunicarnos.|En lenguaje hay g en la sílaba gua. Su terminación -aje lleva j.|3
+esco[g]er|Puedes {w} el tema de tu cuento.|Escoger acaba en -ger y se escribe con g.|3
+in[g]enio|Resolvieron el problema con mucho {w}.|Ingenio e ingenioso se escriben con g.|3
+beren[j]ena|Hemos plantado una {w} en el huerto.|Berenjena se escribe con j.|3
+emer[g]encia|En caso de {w}, avisamos a una persona adulta.|Emergencia se escribe con g; está relacionada con emerger.|3`,
+h:`[h]uevo|La gallina ha puesto un {w}.|Las palabras que empiezan por hue-, como huevo, llevan h.|1
+[h]ielo|El agua se convirtió en {w}.|Las palabras que empiezan por hie-, como hielo, llevan h.|1
+[h]oja|Recogimos una {w} del suelo.|Hoja y hojarasca se escriben con h.|1
+[h]ormiga|Una {w} llevaba una semilla.|Hormiga y hormiguero se escriben con h.|1
+[h]ueso|El perro escondió un {w}.|Las palabras que empiezan por hue-, como hueso, llevan h.|1
+[h]umo|De la chimenea salía {w}.|Humo y humareda se escriben con h.|1
+[]ala|El pájaro tenía una pluma en el {w}.|Ala, la parte del cuerpo de un ave, se escribe sin h.|1
+[]arena|Construimos un castillo de {w}.|Arena se escribe sin h.|1
+[]amigo|Mi {w} me prestó un lápiz.|Amigo y amistad se escriben sin h.|1
+[h]ilo|Enhebramos la aguja con {w} rojo.|Hilo se escribe con h.|1
+[]ola|Una {w} llegó hasta nuestras toallas.|Ola, del mar, se escribe sin h. Hola es un saludo.|1
+[h]ola|Al entrar, saludó diciendo «{w}».|Hola, el saludo, lleva h. Ola es la del mar.|1
+[h]uerto|En el {w} cultivamos tomates.|Las palabras que empiezan por hue-, como huerto, llevan h.|2
+[h]ierba|Nos sentamos sobre la {w}.|Las palabras que empiezan por hie-, como hierba, llevan h.|2
+zana[h]oria|El conejo se comió una {w}.|Zanahoria lleva una h intercalada.|2
+almo[h]ada|Puse la cabeza sobre la {w}.|Almohada lleva una h intercalada.|2
+ve[h]ículo|El autobús es un {w} de transporte.|Vehículo lleva una h intercalada.|2
+[]invierno|En {w} hace más frío.|Invierno se escribe sin h.|2
+[h]abitación|Ordené mi {w} antes de salir.|Habitación se escribe con h; está relacionada con habitar.|2
+[h]acer|Vamos a {w} un experimento.|Hacer y muchas de sus formas llevan h: hago, hacemos, hice.|2
+[]echar|Voy a {w} agua en el vaso.|Echar se escribe sin h; también echo y echamos.|2
+[h]echo|Ya he {w} los deberes.|Hecho, del verbo hacer, lleva h.|2
+[]echo|Yo {w} las peladuras en el compost.|Echo, del verbo echar, se escribe sin h.|2
+[h]ay|En la biblioteca {w} un libro nuevo.|Hay, del verbo haber, lleva h.|2
+[h]abría|Con más tiempo, yo {w} terminado el dibujo.|Habría es una forma del verbo haber y lleva h.|3
+[]abría|Cada mañana, el conserje {w} la puerta.|Abría es una forma del verbo abrir y se escribe sin h.|3
+[h]onda|La piscina es demasiado {w} para mí.|Honda, con h, significa profunda.|3
+[]onda|La piedra creó una {w} en el agua.|Onda es una ondulación y se escribe sin h.|3
+[h]ojear|Voy a {w} el libro para ver sus ilustraciones.|Hojear es pasar las hojas de un libro y lleva h.|3
+[]ojear|Desde la ventana puedo {w} el patio un momento.|Ojear es mirar de manera rápida y se escribe sin h.|3
+pro[h]ibir|El cartel indica que van a {w} el paso.|Prohibir lleva una h intercalada.|3
+co[h]ete|El {w} despegó hacia el espacio.|Cohete lleva una h intercalada.|3
+[h]umilde|A pesar de sus premios, es una persona {w}.|Humilde se escribe con h.|3
+[]olor|El pan recién hecho tiene un {w} agradable.|Olor se escribe sin h.|3
+[h]istoria|Nos contaron una {w} de aventuras.|Historia e historiador se escriben con h.|3
+des[h]acer|Podemos {w} el nudo con cuidado.|Deshacer conserva la h de hacer.|3`,
+mn:`ca[m]po|Pasamos el día en el {w}.|Antes de p se escribe m: campo.|1
+bo[m]ba|La {w} de agua dejó de funcionar.|Antes de b se escribe m: bomba.|1
+ca[m]pana|Sonó la {w} de la torre.|Antes de p se escribe m: campana.|1
+so[m]bra|Buscamos la {w} de un árbol.|Antes de b se escribe m: sombra.|1
+l á[m]para|La {w} ilumina la mesa.|Antes de p se escribe m: lámpara.|1
+bo[m]bero|El {w} apagó el incendio.|Antes de b se escribe m: bombero.|1
+tro[m]peta|Mi hermana toca la {w}.|Antes de p se escribe m: trompeta.|1
+co[m]ba|Jugamos a saltar a la {w}.|Antes de b se escribe m: comba.|1
+ca[m]bio|Hoy hemos hecho un {w} de sitio.|Antes de b se escribe m: cambio.|1
+te[m]prano|Mañana nos levantaremos {w}.|Antes de p se escribe m: temprano.|1
+bo[m]billa|Cambiamos la {w} de la lámpara.|Antes de b se escribe m: bombilla.|1
+co[m]pañero|Mi {w} me ayudó a ordenar.|Antes de p se escribe m: compañero.|1
+co[m]prar|Fuimos a {w} fruta al mercado.|Antes de p se escribe m: comprar.|2
+e[m]pezar|Vamos a {w} la lectura.|Antes de p se escribe m: empezar.|2
+li[m]piar|Hay que {w} la mesa.|Antes de p se escribe m: limpiar.|2
+tie[m]po|Hoy tenemos {w} para jugar.|Antes de p se escribe m: tiempo.|2
+si[m]pático|El personaje del cuento es muy {w}.|Antes de p se escribe m: simpático.|2
+e[n]viar|Voy a {w} una carta.|Antes de v se escribe n: enviar.|2
+i[n]vierno|El {w} comienza en diciembre.|Antes de v se escribe n: invierno.|2
+co[n]versar|Nos reunimos para {w}.|Antes de v se escribe n: conversar.|2
+co[n]vidar|Voy a {w} a mis amigos a merendar.|Antes de v se escribe n: convidar.|2
+tra[n]vía|Cruzamos la ciudad en {w}.|Antes de v se escribe n: tranvía.|2
+i[n]ventar|Nos gusta {w} historias.|Antes de v se escribe n: inventar.|2
+e[m]budo|Vertimos el agua con un {w}.|Antes de b se escribe m: embudo.|2
+i[n]visible|El aire es {w}, pero podemos notar su movimiento.|Antes de v se escribe n: invisible.|3
+co[n]vivir|Aprendemos a {w} y a respetarnos.|Antes de v se escribe n: convivir.|3
+co[m]probar|Debemos {w} el resultado.|Antes de p se escribe m: comprobar.|3
+co[m]promiso|Cuidar el huerto es un {w} de todos.|Antes de p se escribe m: compromiso.|3
+e[m]balar|Vamos a {w} los libros para la mudanza.|Antes de b se escribe m: embalar.|3
+i[m]posible|No es {w} si lo intentamos juntos.|Antes de p se escribe m: imposible.|3
+a[m]biente|Cuidamos el medio {w}.|Antes de b se escribe m: ambiente.|3
+so[n]risa|Nos recibió con una gran {w}.|Sonrisa lleva n antes de r.|3
+i[n]menso|El océano parecía {w}.|Inmenso lleva n antes de m.|3
+gi[m]nasio|Hoy haremos ejercicio en el {w}.|Gimnasio se escribe con m antes de n.|3
+alu[m]no|Cada {w} eligió un libro.|Alumno se escribe con m antes de n.|3
+hi[m]no|La banda interpretó el {w}.|Himno se escribe con m antes de n.|3`,
+rr:`pe[rr]o|El {w} movía la cola.|El sonido fuerte entre vocales se escribe rr: perro.|1
+ca[rr]o|El caballo tiraba del {w}.|El sonido fuerte entre vocales se escribe rr: carro.|1
+ca[r]a|Se lavó la {w} con agua.|El sonido suave entre vocales se escribe r: cara.|1
+lo[r]o|El {w} tiene plumas verdes.|El sonido suave entre vocales se escribe r: loro.|1
+pe[r]a|Me comí una {w} madura.|El sonido suave entre vocales se escribe r: pera.|1
+bu[rr]o|El {w} caminaba junto al camino.|El sonido fuerte entre vocales se escribe rr: burro.|1
+[r]atón|El {w} salió de su escondite.|Al principio de palabra, el sonido fuerte se escribe con una sola r.|1
+[r]ana|La {w} saltó al estanque.|Al principio de palabra, el sonido fuerte se escribe con una sola r.|1
+[r]osa|En el jardín creció una {w}.|Al principio de palabra, el sonido fuerte se escribe con una sola r.|1
+ca[rr]era|Participamos en una {w} por el parque.|El sonido fuerte entre vocales se escribe rr: carrera.|1
+a[r]ena|La {w} de la playa estaba caliente.|El sonido suave entre vocales se escribe r: arena.|1
+[to]ro|El toro pastaba en el campo.|Toro lleva una sola r.|1
+ba[rr]io|En nuestro {w} hay una biblioteca.|El sonido fuerte entre vocales se escribe rr: barrio.|2
+tie[rr]a|Plantamos las semillas en la {w}.|El sonido fuerte entre vocales se escribe rr: tierra.|2
+ca[r]acol|El {w} avanzaba despacio.|El sonido suave entre vocales se escribe r: caracol.|2
+ba[rr]er|Nos toca {w} las hojas del patio.|El sonido fuerte entre vocales se escribe rr: barrer.|2
+a[rr]oz|Hoy comemos {w} con verduras.|El sonido fuerte entre vocales se escribe rr: arroz.|2
+co[r]ona|La reina llevaba una {w}.|El sonido suave entre vocales se escribe r: corona.|2
+so[nr]isa|Su sonrisa nos alegró el día.|Después de n, el sonido fuerte se escribe con una sola r.|2
+en[r]edo|El hilo tenía un {w} enorme.|Después de n, el sonido fuerte se escribe con una sola r.|2
+al[r]ededor|Dimos una vuelta {w} del lago.|Después de l, el sonido fuerte se escribe con una sola r.|2
+hon[r]ado|El personaje era sincero y {w}.|Después de n, el sonido fuerte se escribe con una sola r.|2
+sub[r]ayar|Voy a {w} las ideas principales.|Después de b, en subrayar, se escribe una sola r.|2
+[r]egalo|Preparé un {w} para mi amiga.|Al principio de palabra se escribe una sola r.|2
+ant i[rr]obo|La tienda instaló un sistema {w}.|En antirrobo se escribe rr porque el sonido fuerte queda entre vocales.|3
+vice[rr]ector|El {w} asistió a la reunión.|En vicerrector se escribe rr porque el sonido fuerte queda entre vocales.|3
+auto[rr]etrato|La pintora terminó su {w}.|En autorretrato se escribe rr porque el sonido fuerte queda entre vocales.|3
+pa[rr]illa|Asamos las verduras en la {w}.|El sonido fuerte entre vocales se escribe rr: parrilla.|3
+ca[rr]etilla|Llevamos la tierra en una {w}.|El sonido fuerte entre vocales se escribe rr: carretilla.|3
+co[rr]iente|La {w} del río era muy fuerte.|El sonido fuerte entre vocales se escribe rr: corriente.|3
+son[r]ojar|Un elogio me puede {w}.|Después de n se escribe una sola r: sonrojar.|3
+is[r]aelí|Conocimos a una escritora {w}.|Después de s, el sonido fuerte se escribe con una sola r.|3
+peli[r]rojo|Mi primo es {w}.|En pelirrojo, el sonido fuerte entre vocales se escribe rr.|3
+ho[r]ario|Consulté el {w} del autobús.|El sonido suave entre vocales se escribe r: horario.|3
+b iblioteca[r]io|El {w} nos recomendó un cuento.|Bibliotecario se escribe con una sola r.|3
+[r]espeto|Escuchamos las opiniones con {w}.|Al principio de palabra se escribe una sola r.|3`,
+bv:`[b]arco|El {w} llegó al puerto.|Barco y embarcar se escriben con b.|1
+[v]aca|La {w} pastaba en el prado.|Vaca, el animal, se escribe con v.|1
+[b]ota|Me puse una {w} en cada pie.|Bota, el calzado, se escribe con b.|1
+[v]aso|Llené el {w} de agua.|Vaso se escribe con v.|1
+[b]urro|El {w} llevaba las alforjas.|Burro se escribe con b.|1
+[v]iento|El {w} movía las ramas.|Viento y ventoso se escriben con v.|1
+[b]iblioteca|En la {w} prestamos y leemos libros.|Biblioteca y bibliotecario se escriben con b.|1
+[v]entana|Abrí la {w} para ventilar.|Ventana se escribe con v.|1
+[b]razo|Levanté el {w} para preguntar.|Delante de r se escribe b: brazo.|1
+[b]lanco|Pintamos el muro de color {w}.|Delante de l se escribe b: blanco.|1
+nu[b]e|Una {w} tapó el sol.|Nube se escribe con b.|1
+u[v]a|La {w} crece en la vid.|Uva se escribe con v.|1
+canta[b]a|Ayer mi hermana {w} en el coro.|Las terminaciones -aba del pretérito imperfecto se escriben con b.|2
+juga[b]an|Antes, mis abuelos {w} en esta plaza.|Las terminaciones -aban del pretérito imperfecto se escriben con b.|2
+ha[b]lar|Tenemos que {w} para entendernos.|Delante de l se escribe b: hablar.|2
+ama[b]le|Nos atendió una persona muy {w}.|La terminación -able se escribe con b.|2
+nue[v]o|He empezado un cuaderno {w}.|La terminación -evo de nuevo se escribe con v.|2
+acti[v]o|El grupo tuvo un papel muy {w}.|La terminación -ivo de activo se escribe con v.|2
+in[v]ierno|El {w} trae días fríos.|Después de n se escribe v: invierno.|2
+cam[b]io|Hemos hecho un {w} de planes.|Después de m se escribe b: cambio.|2
+escri[b]ir|Me gusta {w} cuentos.|Los verbos acabados en -bir se escriben con b, salvo hervir, servir y vivir.|2
+reci[b]ir|Mañana vamos a {w} una visita.|Recibir acaba en -bir y se escribe con b.|2
+ser[v]ir|Me toca {w} el agua en los vasos.|Servir se escribe con v; es una excepción entre los verbos acabados en -bir.|2
+vi[v]ir|Me gustaría {w} cerca del mar.|Vivir se escribe con v; es una excepción entre los verbos acabados en -bir.|2
+tu[v]o|Ayer Ana {w} una idea estupenda.|Tuvo es una forma de tener y se escribe con v.|3
+tu[b]o|El agua pasa por este {w}.|Tubo, la pieza por donde pasa el agua, se escribe con b.|3
+[b]otar|El jugador hizo {w} la pelota.|Botar, dar botes, se escribe con b.|3
+[v]otar|Vamos a {w} para elegir representante.|Votar, participar en una votación, se escribe con v.|3
+[b]ello|El atardecer era muy {w}.|Bello significa hermoso y se escribe con b.|3
+[v]ello|El {w} del brazo es muy fino.|Vello es el pelo corto del cuerpo y se escribe con v.|3
+her[v]ir|Hay que {w} el agua antes de cocinar.|Hervir se escribe con v; es una excepción entre los verbos acabados en -bir.|3
+estu[v]imos|Ayer {w} en el museo.|Estuvimos, de estar, se escribe con v.|3
+andu[v]e|El domingo {w} durante una hora.|Anduve, de andar, se escribe con v.|3
+ad[v]ertir|El cartel nos puede {w} del peligro.|Después de ad- se escribe v: advertir.|3
+ama[b]ilidad|Nos recibió con mucha {w}.|Amabilidad se escribe con b, como amable.|3
+sua[v]e|La tela es muy {w}.|La terminación -ave de suave se escribe con v.|3
+na[v]egar|Aprendimos a {w} en un velero.|Navegar se escribe con v; está relacionado con nave.|3
+obser[v]ar|Usamos una lupa para {w} las hojas.|Observar y observación se escriben con v.|3`,
+czq:`[c]asa|Mi {w} está cerca del colegio.|El sonido /k/ ante a se escribe c: casa.|1
+[qu]eso|Me gusta el bocadillo de {w}.|El sonido /k/ ante e se escribe qu: queso. La u no suena.|1
+[qu]ince|En la caja hay {w} lápices.|El sonido /k/ ante i se escribe qu: quince.|1
+[c]una|El bebé dormía en su {w}.|El sonido /k/ ante u se escribe c: cuna.|1
+[z]apato|Me até el cordón del {w}.|Zapato se escribe con z ante a.|1
+[z]orro|El {w} se escondió entre los árboles.|Zorro se escribe con z ante o.|1
+[c]ebra|La {w} tiene rayas blancas y negras.|Cebra se escribe con c ante e.|1
+[c]ine|Fuimos al {w} a ver una película.|Cine se escribe con c ante i.|1
+[c]opa|Llenaron la {w} de agua.|El sonido /k/ ante o se escribe c: copa.|1
+[qu]i osco|Compramos el periódico en el {w}.|Quiosco se escribe con qu ante i.|1
+[z]umo|Preparé un {w} de naranja.|Zumo se escribe con z ante u.|1
+[c]ielo|Hoy el {w} está despejado.|Cielo se escribe con c ante i.|1
+l ápi[z]|Escribo con un {w}.|Lápiz acaba en z; su plural es lápices.|2
+l ápi[c]es|Sacamos punta a los {w}.|Las palabras acabadas en z cambian z por c en el plural: lápiz, lápices.|2
+pe[z]|Un {w} nadaba en el estanque.|Pez acaba en z; su plural es peces.|2
+pe[c]es|En el acuario hay varios {w}.|Pez cambia la z por c en el plural: peces.|2
+lu[z]|Encendí la {w} del pasillo.|Luz acaba en z; su plural es luces.|2
+lu[c]es|Apagamos las {w} al salir.|Luz cambia la z por c en el plural: luces.|2
+bos[qu]e|Paseamos por el {w}.|El sonido /k/ ante e se escribe qu: bosque.|2
+má[qu]ina|La {w} dejó de funcionar.|El sonido /k/ ante i se escribe qu: máquina.|2
+es[qu]ina|Nos encontramos en la {w}.|El sonido /k/ ante i se escribe qu: esquina.|2
+ca[z]uela|La sopa está en la {w}.|Cazuela se escribe con z ante u.|2
+[c]ereza|La {w} es una fruta roja.|Cereza se escribe con c ante e y con z ante a.|2
+[c]irco|El {w} llegó al pueblo.|Circo se escribe con c ante i.|2
+ra í[z]|La {w} sujeta la planta al suelo.|Raíz acaba en z; su plural es raíces.|3
+ra í[c]es|Las {w} absorben agua.|Raíz cambia la z por c en el plural: raíces.|3
+vo[z]|Escuchamos su {w} desde el patio.|Voz acaba en z; su plural es voces.|3
+vo[c]es|En el teatro se oían muchas {w}.|Voz cambia la z por c en el plural: voces.|3
+pa[z]|El grupo propuso un acuerdo de {w}.|Paz acaba en z; su plural es paces.|3
+ve[c]es|He leído este cuento varias {w}.|Vez cambia la z por c en el plural: veces.|3
+[qu]ímica|En el laboratorio aprendemos {w}.|El sonido /k/ ante í se escribe qu: química.|3
+e[qu]ipo|Nuestro {w} trabaja unido.|El sonido /k/ ante i se escribe qu: equipo.|3
+[qu]ilómetro|La biblioteca está a un {w} de aquí.|El sonido /k/ ante i se escribe qu: kilómetro también admite la variante con k, pero aquí practicamos la forma quilómetro.|3
+a[z]úcar|Añadí una cucharada de {w}.|Azúcar se escribe con z ante ú.|3
+cora[z]ón|El {w} impulsa la sangre.|Corazón se escribe con z ante ó.|3
+[qu]erido|Escribí una carta a mi {w} amigo.|El sonido /k/ ante e se escribe qu: querido.|3`,
+ggu:`[g]ato|El {w} duerme en el sofá.|El sonido suave de g ante a se escribe g: gato.|1
+[g]oma|Borré la palabra con una {w}.|El sonido suave de g ante o se escribe g: goma.|1
+[g]usano|El {w} avanzaba por la hoja.|El sonido suave de g ante u se escribe g: gusano.|1
+[gu]erra|El cuento termina cuando acaba la {w}.|Para el sonido suave ante e se escribe gu. En guerra, la u no suena.|1
+[gu]itarra|Tocamos la {w} en clase de música.|Para el sonido suave ante i se escribe gu. En guitarra, la u no suena.|1
+[gu]isante|En la cuchara quedaba un {w}.|En guisante, gu mantiene el sonido suave y la u no suena.|1
+man[gu]era|Regamos el huerto con la {w}.|Ante e se usa gu para mantener el sonido suave; la u no suena.|1
+á[gu]ila|El {w} volaba sobre las montañas.|Ante i se usa gu para mantener el sonido suave; la u no suena.|1
+pin[gü]ino|El {w} se deslizó por el hielo.|En güi, los dos puntos indican que la u sí se pronuncia: pingüino.|1
+ci[gü]eña|La {w} construyó su nido en la torre.|En güe, la diéresis indica que la u sí se pronuncia: cigüeña.|1
+ho[gu]era|Nos reunimos junto a la {w}.|Ante e se usa gu para mantener el sonido suave; la u no suena.|1
+ju[gu]ete|Guardé el {w} en su caja.|Ante e se usa gu para mantener el sonido suave; la u no suena.|1
+ver[gü]enza|Al principio le daba {w} hablar en público.|En vergüenza, la u se pronuncia ante e y lleva diéresis.|2
+para[gü]ero|Dejé el paraguas en el {w}.|En paragüero, la u se pronuncia ante e y lleva diéresis.|2
+de sa[gü]e|El agua salió por el {w}.|En desagüe, la u se pronuncia ante e y lleva diéresis.|2
+bi li n[gü]e|La guía del museo es {w}: está en dos idiomas.|En bilingüe, la u se pronuncia ante e y lleva diéresis.|2
+len[gü]eta|La {w} del zapato se había doblado.|En lengüeta, la u se pronuncia ante e y lleva diéresis.|2
+hormi[gu]ero|Las hormigas entraron en el {w}.|Ante e se usa gu para mantener el sonido suave; la u no suena.|2
+jil[gu]ero|Escuchamos cantar a un {w}.|Ante e se usa gu para mantener el sonido suave; la u no suena.|2
+se[gu]ir|Voy a {w} leyendo.|Ante i se usa gu para mantener el sonido suave; la u no suena.|2
+ami[gu]ito|El protagonista jugaba con su {w}.|Amiguito conserva el sonido de amigo escribiendo gu ante i.|2
+ju[gu]etería|Compramos el puzle en la {w}.|Ante e se usa gu para mantener el sonido suave; la u no suena.|2
+[g]alleta|Tomé una {w} de avena.|Ante a basta una g para el sonido suave.|2
+[g]oloso|El personaje era muy {w}.|Ante o basta una g para el sonido suave.|2
+anti[gü]edad|Investigamos cómo vivían en la {w}.|En antigüedad, la u se pronuncia ante e y lleva diéresis.|3
+lin[gü]ística|La {w} estudia el lenguaje.|En lingüística, la u se pronuncia ante í y lleva diéresis.|3
+ambi[gü]edad|La frase puede tener dos sentidos por su {w}.|En ambigüedad, la u se pronuncia ante e y lleva diéresis.|3
+multi li n[gü]e|La biblioteca tiene una sección {w}, con libros en varias lenguas.|En multilingüe, la u se pronuncia ante e y lleva diéresis.|3
+averi[gü]é|Ayer {w} la solución del acertijo.|En averigüé, la u se pronuncia ante é y lleva diéresis, además de la tilde de la é.|3
+apa[g]ar|Recuerda {w} la luz al salir.|Ante a basta una g para el sonido suave.|3
+car[gu]ero|El barco {w} entró en el puerto.|Ante e se usa gu para mantener el sonido suave; la u no suena.|3
+distin[gu]ir|La lupa permite {w} los detalles.|Ante i se usa gu para mantener el sonido suave; la u no suena.|3
+conse[gu]ir|Con práctica puedes {w} tu objetivo.|Ante i se usa gu para mantener el sonido suave; la u no suena.|3
+alber[gu]e|Dormimos en un {w} de montaña.|Ante e se usa gu para mantener el sonido suave; la u no suena.|3
+espa[gu]eti|Preparé un plato de {w}.|Ante e se usa gu para mantener el sonido suave; la u no suena.|3
+[gu]inda|Colocó una {w} sobre la tarta.|Ante i se usa gu para mantener el sonido suave; la u no suena.|3`,
+yll:`[ll]ave|Abrí la puerta con la {w}.|Llave y llavero se escriben con ll.|1
+[ll]uvia|La {w} regó el jardín.|Lluvia y lluvioso se escriben con ll.|1
+si[ll]a|Me senté en una {w}.|Silla y sillón se escriben con ll.|1
+po[ll]o|El {w} salió del cascarón.|Pollo, el animal, se escribe con ll.|1
+pla[y]a|Paseamos por la {w}.|Playa y playero se escriben con y.|1
+pa[y]aso|El {w} hizo malabares.|Payaso se escribe con y.|1
+[ll]ave ro|Guardé la llave en el {w}.|Llavero conserva la ll de llave.|1
+estre[ll]a|Vimos una {w} fugaz.|Estrella se escribe con ll.|1
+bote[ll]a|Llené la {w} de agua.|La terminación -ella de botella se escribe con ll.|1
+caba[ll]o|El {w} galopaba por el campo.|Caballo y caballito se escriben con ll.|1
+ma[y]or|Mi hermana es la {w} de la familia.|Mayor se escribe con y.|1
+a[y]uda|Pedí {w} para mover la mesa.|Ayuda y ayudar se escriben con y.|1
+cuchi[ll]o|Cortó el pan con un {w}.|La terminación -illo de cuchillo se escribe con ll.|2
+semi[ll]a|Plantamos una {w}.|La terminación -illa de semilla se escribe con ll.|2
+pasi[ll]o|Caminamos despacio por el {w}.|La terminación -illo de pasillo se escribe con ll.|2
+bolsi[ll]o|Guardé la nota en el {w}.|La terminación -illo de bolsillo se escribe con ll.|2
+ladri[ll]o|La pared está hecha de {w}.|La terminación -illo de ladrillo se escribe con ll.|2
+le[y]enda|Nos contaron una {w} del pueblo.|Leyenda se escribe con y.|2
+pro[y]ecto|Trabajamos en un {w} sobre el agua.|Proyecto se escribe con y.|2
+desa[y]uno|El {w} estaba preparado.|Desayuno y desayunar se escriben con y.|2
+arro[y]o|Un pequeño {w} cruzaba el bosque.|Arroyo, la corriente de agua, se escribe con y.|2
+a[y]er|{w} visitamos el museo.|Ayer se escribe con y.|2
+[ll]orar|La cebolla me hizo {w}.|Llorar y llanto se escriben con ll.|2
+ens a[y]o|Hoy tenemos el último {w} de la obra.|Ensayo y ensayar se escriben con y.|2
+va[ll]a|Pintamos la {w} de madera del jardín.|Valla es una cerca y se escribe con ll.|3
+va[y]a|Espero que mi hermano {w} a la excursión.|Vaya es una forma del verbo ir y se escribe con y.|3
+ra[ll]ar|Voy a {w} queso para la pasta.|Rallar, desmenuzar con un rallador, se escribe con ll.|3
+ra[y]ar|La piedra puede {w} el cristal.|Rayar, hacer rayas, se escribe con y.|3
+ca[y]ó|El lápiz se {w} al suelo.|Cayó, del verbo caer, se escribe con y.|3
+ca[ll]ó|El público se {w} cuando empezó la función.|Calló, del verbo callar, se escribe con ll.|3
+ha[ll]ar|La detective logró {w} la pista.|Hallar, encontrar, se escribe con ll.|3
+ha[y]a|Espero que {w} sitio para todos.|Haya, del verbo haber, se escribe con y.|3
+le[y]eron|Los niños {w} el cuento en voz alta.|Leyeron, del verbo leer, se escribe con y.|3
+constru[y]eron|Los vecinos {w} un refugio para pájaros.|Construyeron, del verbo construir, se escribe con y.|3
+atribu[y]e|La autora {w} el éxito al trabajo del equipo.|Atribuye, del verbo atribuir, se escribe con y.|3
+subra[y]ar|Voy a {w} las palabras importantes.|Subrayar conserva la y de raya.|3`
+};
+// Ajustes de segmentación: todos los huecos señalan únicamente el contenido del bloque.
+RAW.gj=RAW.gj.replace('ejercitar|Para este reto vamos a ejercitar la memoria.','e[j]ercitar|Para este reto vamos a {w} la memoria.');
+RAW.mn=RAW.mn.replace('l á[m]para','lá[m]para');
+RAW.rr=RAW.rr.replace('[to]ro|El toro pastaba en el campo.','to[r]o|El {w} pastaba en el campo.').replace('so[nr]isa|Su sonrisa nos alegró el día.','son[r]isa|Su {w} nos alegró el día.').replace('ant i[rr]obo','anti[rr]obo').replace('peli[r]rojo','peli[rr]ojo').replace('b iblioteca[r]io','biblioteca[r]io');
+RAW.czq=RAW.czq.replace('[qu]i osco','[qu]iosco').replaceAll('l ápi','lápi').replaceAll('ra í','raí').replace('[qu]ilómetro|La biblioteca está a un {w} de aquí.|El sonido /k/ ante i se escribe qu: kilómetro también admite la variante con k, pero aquí practicamos la forma quilómetro.','[qu]itar|Voy a {w} las hojas secas del camino.|El sonido /k/ ante i se escribe qu: quitar.');
+RAW.ggu=RAW.ggu.replace('de sa[gü]e','desa[gü]e').replace('bi li n[gü]e','bilin[gü]e').replace('multi li n[gü]e','multilin[gü]e');
+RAW.yll=RAW.yll.replace('[ll]ave ro','[ll]avero').replace('ens a[y]o','ensa[y]o');
+const WORDS = Object.fromEntries(Object.entries(RAW).map(([block,raw])=>[block,raw.split('\n').map((line,i)=>{
+const [marked,sentence,rule,tier]=line.split('|');
+const m=marked.match(/^(.*?)\[(.*?)\](.*)$/u);
+if(!m)throw new Error('Hueco no válido: '+line);
+return {id:block+'-'+i,block,word:m[1]+m[2]+m[3],pre:m[1],answer:m[2],post:m[3],sentence,rule,tier:Number(tier)};
+})]));
+const TILDE_RAW=`café|ca-fé|Aguda|1|Es aguda y termina en vocal: lleva tilde.
+sofá|so-fá|Aguda|1|Es aguda y termina en vocal: lleva tilde.
+camión|ca-mión|Aguda|1|Es aguda y termina en n: lleva tilde.
+ratón|ra-tón|Aguda|1|Es aguda y termina en n: lleva tilde.
+compás|com-pás|Aguda|1|Es aguda y termina en s: lleva tilde.
+jardín|jar-dín|Aguda|1|Es aguda y termina en n: lleva tilde.
+reloj|re-loj|Aguda|1|Es aguda y termina en j: no lleva tilde.
+papel|pa-pel|Aguda|1|Es aguda y termina en l: no lleva tilde.
+cantar|can-tar|Aguda|1|Es aguda y termina en r: no lleva tilde.
+mesa|me-sa|Llana|1|Es llana y termina en vocal: no lleva tilde.
+libro|li-bro|Llana|1|Es llana y termina en vocal: no lleva tilde.
+lápiz|lá-piz|Llana|1|Es llana y termina en z: lleva tilde.
+árbol|ár-bol|Llana|1|Es llana y termina en l: lleva tilde.
+fácil|fá-cil|Llana|1|Es llana y termina en l: lleva tilde.
+azúcar|a-zú-car|Llana|1|Es llana y termina en r: lleva tilde.
+silla|si-lla|Llana|1|Es llana y termina en vocal: no lleva tilde.
+ventana|ven-ta-na|Llana|1|Es llana y termina en vocal: no lleva tilde.
+sábado|sá-ba-do|Esdrújula|1|Las esdrújulas siempre llevan tilde.
+música|mú-si-ca|Esdrújula|1|Las esdrújulas siempre llevan tilde.
+pájaro|pá-ja-ro|Esdrújula|1|Las esdrújulas siempre llevan tilde.
+teléfono|te-lé-fo-no|Esdrújula|1|Las esdrújulas siempre llevan tilde.
+plátano|plá-ta-no|Esdrújula|1|Las esdrújulas siempre llevan tilde.
+bolígrafo|bo-lí-gra-fo|Esdrújula|1|Las esdrújulas siempre llevan tilde.
+médico|mé-di-co|Esdrújula|1|Las esdrújulas siempre llevan tilde.
+corazón|co-ra-zón|Aguda|2|Es aguda y termina en n: lleva tilde.
+después|des-pués|Aguda|2|Es aguda y termina en s: lleva tilde.
+también|tam-bién|Aguda|2|Es aguda y termina en n: lleva tilde.
+japonés|ja-po-nés|Aguda|2|Es aguda y termina en s: lleva tilde.
+volcán|vol-cán|Aguda|2|Es aguda y termina en n: lleva tilde.
+colibrí|co-li-brí|Aguda|2|Es aguda y termina en vocal: lleva tilde.
+melón|me-lón|Aguda|2|Es aguda y termina en n: lleva tilde.
+capitán|ca-pi-tán|Aguda|2|Es aguda y termina en n: lleva tilde.
+carácter|ca-rác-ter|Llana|2|Es llana y termina en r: lleva tilde.
+difícil|di-fí-cil|Llana|2|Es llana y termina en l: lleva tilde.
+útil|ú-til|Llana|2|Es llana y termina en l: lleva tilde.
+césped|cés-ped|Llana|2|Es llana y termina en d: lleva tilde.
+álbum|ál-bum|Llana|2|Es llana y termina en m: lleva tilde.
+ángel|án-gel|Llana|2|Es llana y termina en l: lleva tilde.
+orden|or-den|Llana|2|Es llana y termina en n: no lleva tilde.
+examen|e-xa-men|Llana|2|Es llana y termina en n: no lleva tilde.
+joven|jo-ven|Llana|2|Es llana y termina en n: no lleva tilde.
+volumen|vo-lu-men|Llana|2|Es llana y termina en n: no lleva tilde.
+exámenes|e-xá-me-nes|Esdrújula|2|Las esdrújulas siempre llevan tilde.
+jóvenes|jó-ve-nes|Esdrújula|2|Las esdrújulas siempre llevan tilde.
+brújula|brú-ju-la|Esdrújula|2|Las esdrújulas siempre llevan tilde.
+pirámide|pi-rá-mi-de|Esdrújula|2|Las esdrújulas siempre llevan tilde.
+oxígeno|o-xí-ge-no|Esdrújula|2|Las esdrújulas siempre llevan tilde.
+matemáticas|ma-te-má-ti-cas|Esdrújula|2|Las esdrújulas siempre llevan tilde.
+miércoles|miér-co-les|Esdrújula|2|Las esdrújulas siempre llevan tilde.
+rápido|rá-pi-do|Esdrújula|2|Las esdrújulas siempre llevan tilde.
+Lucía|Lu-cí-a|Llana|3|La í tónica forma hiato con la a: lleva tilde aunque la palabra sea llana acabada en vocal.
+María|Ma-rí-a|Llana|3|La í tónica forma hiato con la a y lleva tilde.
+río|rí-o|Llana|3|La í tónica forma hiato con la o y lleva tilde.
+día|dí-a|Llana|3|La í tónica forma hiato con la a y lleva tilde.
+baúl|ba-úl|Aguda|3|La ú tónica forma hiato con la a y lleva tilde.
+maíz|ma-íz|Aguda|3|La í tónica forma hiato con la a y lleva tilde.
+país|pa-ís|Aguda|3|La í tónica forma hiato con la a y lleva tilde.
+raíz|ra-íz|Aguda|3|La í tónica forma hiato con la a y lleva tilde.
+frío|frí-o|Llana|3|La í tónica forma hiato con la o y lleva tilde.
+poesía|po-e-sí-a|Llana|3|La í tónica forma hiato con la a y lleva tilde.
+sonríe|son-rí-e|Llana|3|La í tónica forma hiato con la e y lleva tilde.
+búho|bú-ho|Llana|3|La ú tónica forma hiato con la o; la h no lo impide. Lleva tilde.
+oído|o-í-do|Llana|3|La í tónica forma hiato con la o y lleva tilde.
+león|le-ón|Aguda|3|Es aguda y termina en n: lleva tilde.
+héroe|hé-ro-e|Esdrújula|3|Las esdrújulas siempre llevan tilde.
+éxito|é-xi-to|Esdrújula|3|Las esdrújulas siempre llevan tilde.
+triángulo|trián-gu-lo|Esdrújula|3|Las esdrújulas siempre llevan tilde.
+veintidós|vein-ti-dós|Aguda|3|Es aguda y termina en s: lleva tilde.
+cuéntamelo|cuén-ta-me-lo|Sobresdrújula|3|Las sobresdrújulas siempre llevan tilde.
+devuélvemelo|de-vuél-ve-me-lo|Sobresdrújula|3|Las sobresdrújulas siempre llevan tilde.`;
+const ACCENTS=TILDE_RAW.split('\n').map((line,i)=>{const [word,syllables,kind,tier,rule]=line.split('|');return{id:'tildes-'+i,block:'tildes',word,syllables,kind,tier:Number(tier),rule}});
+const TEXTS = {
+gj:[
+['Un viaje de cuento','El {viaje|viage} empezó en un bosque. Un {gigante|jigante} nos enseñó el camino hasta su {jardín|gardín}. Allí había flores de muchos colores.'],
+['La función del colegio','En el {colegio|colejio} preparamos una obra. Cada {personaje|personage} tenía una misión: {proteger|protejer} el bosque. Ensayamos con mucha ilusión.'],
+['Una buena idea','Recibimos un {mensaje|mensage} de la biblioteca. Nos invitaban a {elegir|elejir} un cuento y a {corregir|correjir} un pequeño texto. Después compartimos la lectura.'],
+['El huerto','Dibujamos el {paisaje|paisage} del huerto. Una {berenjena|berengena} crecía junto a un {girasol|jirasol}. Había mariposas por todas partes.'],
+['Un regalo','Fui a {recoger|recojer} un paquete. Dentro había un {juguete|guguete} y un {reloj|relog}. Los guardé con mucho cuidado.']
+],
+h:[
+['En el huerto','En el {huerto|uerto} encontramos una {zanahoria|zanaoria} enorme. Una {hormiga|ormiga} caminaba junto a ella. La dejamos seguir su camino.'],
+['La merienda','Ya he {hecho|echo} la merienda. Ahora {echo|hecho} agua en el vaso. En la mesa {hay|ay} fruta para todos.'],
+['Un día de playa','Una {ola|hola} llegó hasta la toalla. Mi amiga me saludó diciendo «{hola|ola}». Después jugamos con la {arena|harena}.'],
+['Noche de lectura','Dejé el libro sobre la {almohada|almoada}. Antes de dormir quise {hojear|ojear} sus páginas. Era una {historia|istoria} de aventuras.'],
+['Miradas al agua','La piscina era muy {honda|onda}. Una hoja creó una {onda|honda} en la superficie. Desde la ventana pude {ojear|hojear} el patio un momento.']
+],
+mn:[
+['Nuestra excursión','Llegamos {temprano|tenprano} al {campo|canpo}. Nos sentamos a la {sombra|sonbra} de un árbol. Luego compartimos la merienda.'],
+['El invento','Vamos a {inventar|imventar} un aparato {invisible|imvisible}. Antes debemos {comprobar|conprobar} que funciona. Trabajamos por parejas.'],
+['Un aula agradable','Cada {alumno|alunno} recogió su mesa. Fuimos a {limpiar|linpiar} el suelo para cuidar el {ambiente|anbiente}. El aula quedó preparada.'],
+['En el gimnasio','Entramos en el {gimnasio|ginnasio} con una {sonrisa|somrisa}. Nuestro {compañero|conpañero} explicó el juego. Todos pudimos participar.'],
+['La mudanza','Vamos a {embalar|enbalar} los libros. Tenemos {tiempo|tienpo} para {enviar|emviar} las cajas. Cada una lleva su etiqueta.']
+],
+rr:[
+['El paseo','Mi {perro|pero} salió al parque. Dimos una vuelta {alrededor|alrrededor} del lago. Un {caracol|carracol} avanzaba por el camino.'],
+['El huerto','Llevamos {tierra|tiera} en una {carretilla|caretilla}. Después recogimos las hojas para {barrer|barer} el patio. El huerto quedó limpio.'],
+['La artista','La pintora terminó su {autorretrato|autoretrato}. Había dibujado su {cara|carra} con una gran {sonrisa|sonrrisa}. Lo colgó en la pared.'],
+['En el barrio','En nuestro {barrio|bario} celebramos una {carrera|carera}. Al terminar recibimos un {regalo|rregalo}. Fue un día estupendo.'],
+['El detective','El detective era {pelirrojo|pelirojo}. Decidió {subrayar|subrrayar} una pista sobre el {horario|horrario} del tren. Después siguió investigando.']
+],
+bv:[
+['En la biblioteca','En la {biblioteca|viblioteca} vimos un libro {nuevo|nuebo}. Mi compañera fue muy {amable|amavle} y me lo prestó. Lo leímos por turnos.'],
+['Un juego en el patio','Ayer Ana {tuvo|tubo} una idea: hacer {botar|votar} una pelota dentro de un {tubo|tuvo}. Probamos con mucho cuidado.'],
+['La asamblea','Hoy vamos a {votar|botar} para elegir representante. Después podemos {escribir|escrivir} un acuerdo de {convivencia|conbibencia}. Escucharemos todas las opiniones.'],
+['La excursión','Ayer {estuvimos|estubimos} en el bosque. El {viento|biento} movía las ramas. Me gusta {observar|obserbar} la naturaleza.'],
+['La cocina','Primero hay que {hervir|herbir} el agua. Luego podemos {servir|serbir} la sopa. Mi hermana {cantaba|cantava} mientras preparaba la mesa.']
+],
+czq:[
+['Junto al estanque','Un {pez|pec} nadaba cerca de otros {peces|pezes}. Dibujé el estanque con mi {lápiz|lápic}. El agua estaba tranquila.'],
+['La salida','Nuestro {equipo|ecipo} caminó por el {bosque|bosce}. Llegamos a la {esquina|escina} del sendero. Allí descansamos un rato.'],
+['Una planta nueva','La {raíz|raíc} sujeta la planta. Sus {raíces|raízes} crecen bajo la tierra. Observamos todo con unos {lápices|lápizes} preparados para dibujar.'],
+['Un día en casa','En mi {casa|quasa} preparamos una {cazuela|cacu ela} de verduras. Después tomamos {queso|ceso}. Recogimos la mesa entre todos.'],
+['La función','Las {luces|luzes} del teatro se encendieron. Se oían las {voces|vozes} del público. Mi hermana había ido al {cine|zine} el día anterior.']
+],
+ggu:[
+['Un viaje al frío','Vimos un {pingüino|pinguino} en un documental. Después apareció una {cigüeña|cigueña}. Las observamos con una {guía|gía} de aves.'],
+['La casa','Dejé el paraguas en el {paragüero|paraguero}. El agua del patio salió por el {desagüe|desague}. Al fondo había una {manguera|mangüera} enrollada.'],
+['Nuestra música','Mi amigo toca la {guitarra|gitarra}. Al principio le daba {vergüenza|verguenza} actuar. Ahora canta como un {jilguero|jilgüero}.'],
+['Entre dos lenguas','El cuento es {bilingüe|bilingue}. Habla de la {antigüedad|antiguedad} y de un {águila|ágüila} viajera. Lo leímos por turnos.'],
+['Una investigación','Usé una lupa para {distinguir|distingüir} las huellas. Ayer {averigüé|averigué} de quién eran. Decidí {seguir|següir} investigando.']
+],
+yll:[
+['Un paseo','La {lluvia|yuvia} había terminado. Un {arroyo|arrollo} cruzaba el camino hacia la {playa|plalla}. El paisaje estaba precioso.'],
+['El jardín','Pintamos la {valla|vaya} del jardín. Espero que mi hermano {vaya|valla} mañana. Tendrá que traer la {llave|yave} de la puerta.'],
+['En la cocina','Voy a {rallar|rayar} queso. Debo tener cuidado para no {rayar|rallar} la mesa. Después guardo el {cuchillo|cuchiyo}.'],
+['En el teatro','Un lápiz se {cayó|calló} al suelo. El público se {calló|cayó} cuando comenzó la función. En el {ensayo|ensallo} había ocurrido lo mismo.'],
+['Nuestro proyecto','Los vecinos {construyeron|construlleron} un refugio. Dentro pusieron una {semilla|semiya} como adorno. Fue un {proyecto|prollecto} compartido.']
+]};
+// Los textos se muestran por frases, con errores deliberados exclusivamente para revisar.
+TEXTS.czq[3][1]=TEXTS.czq[3][1].replace('cacu ela','cacuela');
+const ACCENT_TEXTS = [
+{title:'Una mañana en el parque',tier:3,text:'El sábado, Lucía encontró un lápiz en el jardín. Después se lo llevó a su hermano.'},
+{title:'La excursión',tier:3,text:'El autobús salió temprano. Visitamos un volcán y dibujamos un árbol junto al camino. Al volver, cantamos una canción.'},
+{title:'La biblioteca',tier:3,text:'En la biblioteca había un libro de música. Su título hablaba de un pájaro y un ratón. Lo leímos juntos.'},
+{title:'Pequeños científicos',tier:3,text:'El miércoles usamos una brújula. Después medimos un triángulo y observamos una pirámide. Fue una actividad muy útil.'},
+{title:'Una visita especial',tier:3,text:'Mi abuelo preparó café y un plátano. Nos enseñó un álbum de fotos. En una aparecía junto a un árbol.'},
+{title:'El concierto',tier:3,text:'La música comenzó a las seis. Un joven tocó el violín y una niña cantó una canción. El público aplaudió con alegría.'},
+{title:'El huerto escolar',tier:3,text:'Plantamos maíz junto al río. María dibujó la raíz de una planta y escribió su nombre. Después regamos el huerto.'},
+{title:'Un día de lluvia',tier:3,text:'El día estaba frío. Guardé el paraguas y entré en la habitación. Allí encontré un teléfono antiguo y un lápiz azul.'},
+{title:'La merienda',tier:4,text:'Él trajo el pan y tú pusiste tu mantel. Mi hermana preparó una bebida para mí. Después compartimos la merienda.',notes:{'Él':'Él lleva tilde cuando es pronombre. El artículo el se escribe sin tilde.','tú':'Tú lleva tilde cuando es pronombre. El posesivo tu se escribe sin tilde.','mí':'Mí lleva tilde cuando es pronombre. El posesivo mi se escribe sin tilde.'}},
+{title:'Un regalo',tier:4,text:'Le pedí que me dé el libro de cuentos. Sé que le gusta leer y se lo agradecí. Él sonrió al abrir el paquete.',notes:{'dé':'Dé, del verbo dar, lleva tilde. La preposición de no la lleva.','Sé':'Sé, del verbo saber, lleva tilde. El pronombre se no la lleva.','Él':'Él lleva tilde cuando es pronombre.'}},
+{title:'Una pregunta',tier:4,text:'¿Qué libro quieres? Dime cómo empieza y dónde ocurre la historia. Me gustaría leerlo también.',notes:{'Qué':'Qué lleva tilde porque introduce una pregunta.','cómo':'Cómo lleva tilde en esta pregunta indirecta: dime cómo empieza.','dónde':'Dónde lleva tilde en esta pregunta indirecta: dime dónde ocurre.'}},
+{title:'La respuesta',tier:4,text:'Si vienes, te daré más papel. Ella dijo que sí y guardó el lápiz. Tu dibujo es para ti y este es para mí.',notes:{'sí':'Sí lleva tilde cuando expresa afirmación. Si condicional no lleva tilde.','más':'Más, que expresa cantidad, lleva tilde.','mí':'Mí lleva tilde cuando es pronombre; ti se escribe sin tilde.'}},
+{title:'Una aventura',tier:4,text:'Aún no sabíamos qué había dentro del baúl. María lo abrió junto al río. Encontró un mapa de un país lejano.',notes:{'Aún':'Aún lleva tilde cuando equivale a todavía.','qué':'Qué lleva tilde porque introduce una pregunta indirecta.'}},
+{title:'Tarde de lectura',tier:4,text:'Tomé un té junto a la ventana. Tú me dijiste que tu cuento era fácil. Él leyó el final y después sonrió.',notes:{'té':'Té, la bebida, lleva tilde. El pronombre te no la lleva.','Tú':'Tú, pronombre, lleva tilde. Tu, posesivo, no la lleva.','Él':'Él, pronombre, lleva tilde. El artículo el no la lleva.'}},
+{title:'De excursión',tier:4,text:'¿Cuándo saldrá el autobús? No sé cuánto tardará. Mi hermano aún está en casa, pero él llegará a tiempo.',notes:{'Cuándo':'Cuándo lleva tilde porque introduce una pregunta.','sé':'Sé, del verbo saber, lleva tilde.','cuánto':'Cuánto lleva tilde porque introduce una pregunta indirecta.','aún':'Aún equivale aquí a todavía y lleva tilde.','él':'Él lleva tilde porque es pronombre.'}},
+{title:'El mensaje',tier:4,text:'Mi amiga escribió: «Cuéntamelo todo y devuélvemelo mañana». Yo no sabía a qué objeto se refería. Después encontré su libro.',notes:{'Cuéntamelo':'Cuéntamelo es sobresdrújula: la sílaba tónica está antes de la antepenúltima.','devuélvemelo':'Devuélvemelo es sobresdrújula y lleva tilde.','qué':'Qué lleva tilde en la pregunta indirecta a qué objeto se refería.'}}
+];
+const LESSONS = {
+gj:[['Busca familias','Jardín → jardinero. Reloj → relojería. Una palabra conocida te puede dar una pista.'],['Terminación -aje','Viaje, paisaje y mensaje se escriben con j.'],['Verbos en -ger y -gir','Coger, proteger, elegir y dirigir llevan g. Tejer y crujir llevan j. Algunas formas cambian: cojo, elijo.']],
+h:[['La H no suena','La escritura se aprende con palabras, familias y contexto: hoja → hojarasca.'],['HIE- y HUE-','Hielo, hierba, huevo, hueso y huerto empiezan por h.'],['El significado importa','He hecho la tarea (hacer). Echo agua (echar). Hola es un saludo; ola es la del mar.']],
+mn:[['Antes de B y P','Se escribe m: sombra, campo y compañero.'],['Antes de V','Se escribe n: enviar, invierno y convivir.'],['Otras combinaciones','Observa y recuerda: alumno, gimnasio e himno llevan m; inmenso y sonrisa llevan n.']],
+rr:[['Al principio','El sonido fuerte se escribe con una sola r: rana, ratón.'],['Entre vocales','Una r para el sonido suave (cara); rr para el fuerte (carro).'],['Después de consonante','Alrededor, enredo, honrado y subrayar llevan una sola r. En autorretrato hay rr porque el sonido fuerte queda entre vocales.']],
+bv:[['B antes de L y R','Blanco, hablar, brazo y brisa llevan b.'],['Pistas frecuentes','Las terminaciones -aba, -aban y -able llevan b: cantaba, jugaban, amable.'],['Palabras en contexto','Tuvo es de tener; tubo es un objeto. Votar es elegir; botar es dar botes.'],['Verbos en -bir','Escribir y recibir llevan b. Las excepciones hervir, servir y vivir llevan v.']],
+czq:[['Sonido /k/','Se escribe c ante a, o, u (casa, copa, cuna) y qu ante e, i (queso, quince). La u de qu no suena.'],['Z y C','Observa: zapato, zorro y zumo; cebra y cine. Practicamos su escritura, con independencia de cómo se pronuncien en tu zona.'],['Del singular al plural','La z final cambia a c ante -es: pez → peces, luz → luces, raíz → raíces.']],
+ggu:[['G suave','Ante a, o, u basta g: gato, goma, gusano.'],['GU ante E e I','Guerra, guitarra y manguera: la u no se pronuncia.'],['GÜ ante E e I','Pingüino, cigüeña y vergüenza: la diéresis indica que la u sí se pronuncia.']],
+yll:[['Familias y terminaciones','Llave → llavero. Las terminaciones -illo, -illa se escriben con ll: cuchillo, semilla.'],['Palabras que conviene recordar','Playa, ayuda, proyecto y leyenda llevan y. La escritura no se puede deducir siempre del sonido.'],['Mira el significado','Valla es una cerca; vaya es de ir. Rallar queso y rayar un cristal son acciones distintas. Cayó es de caer; calló es de callar.']],
+tildes:[['Escucha la sílaba tónica','Aguda: última (ca-fé). Llana: penúltima (lá-piz). Esdrújula: antepenúltima (mú-si-ca).'],['Reglas generales','Las agudas llevan tilde si terminan en vocal, n o s. Las llanas, si terminan en otra consonante. Las esdrújulas y sobresdrújulas siempre llevan tilde. Estas pautas se aplican a las palabras de los primeros niveles.'],['Hiatos','La í o ú tónica junto a a, e u o lleva tilde: día, río, baúl.'],['El contexto decide','Él/el, tú/tu, mí/mi, sé/se y dé/de se distinguen por su función. Ti nunca lleva tilde.'],['Tildes y diéresis','Quitar las tildes de un texto no quita la diéresis: pingüino conserva sus dos puntos.']]
+};
+
+// El primer nivel mezcla M ante B/P con N ante V para aplicar la pauta en ambas direcciones.
+for (const w of WORDS.mn) if (["enviar", "invierno"].includes(w.word)) w.tier=1;
+
+'use strict';
+const $=s=>document.querySelector(s);
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const stripAcute=s=>String(s).replace(/[áéíóúÁÉÍÓÚ]/g,c=>({'á':'a','é':'e','í':'i','ó':'o','ú':'u','Á':'A','É':'E','Í':'I','Ó':'O','Ú':'U'}[c]));
+const lower=s=>String(s).normalize('NFC').trim().toLocaleLowerCase('es');
+const uid=()=>Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,9);
+const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const acute=s=>/[áéíóúÁÉÍÓÚ]/u.test(s);
+const vowels='aeiouAEIOU';
+const accented='áéíóúÁÉÍÓÚ';
+const addAcute=c=>vowels.includes(c)?accented[vowels.indexOf(c)]:c;
+const byId=id=>BLOCKS.find(b=>b.id===id);
+const WORD_INDEX=Object.fromEntries(Object.values(WORDS).flat().concat(ACCENTS).map(w=>[w.id,w]));
+const ICON='<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="20" cy="20" r="12"/><path d="m29 29 12 12M15 20l4 4 7-8"/></svg>';
+const isText=q=>q.kind==="text"||q.kind==="accent-text";
+function sentenceValue(template,value){return template.replace('{w}',(match,offset)=>offset===0?value.charAt(0).toLocaleUpperCase('es')+value.slice(1):value);}
+function letterExercise(w,kind){const b=byId(w.block),wrong=shuffle(b.options.filter(a=>a!==w.answer))[0];return {id:w.id+'-'+kind,source:w.id,block:w.block,word:w.word,rule:w.rule,pre:w.pre,post:w.post,answer:w.answer,sentence:w.sentence,wrong:w.pre+wrong+w.post,kind};}
+function textTokens(text){return text.split(/([\p{L}\p{M}]+)/u).filter(Boolean).map((value,i)=>({value,word:/^[\p{L}\p{M}]+$/u.test(value),index:i}));}
+function makeLetterText(id,i){const [title,raw]=TEXTS[id][i];let normal='',bad='',targets=[];for(const part of raw.split(/(\{[^{}]+\})/u)){if(part.startsWith('{')&&part.endsWith('}')){const [correct,wrong]=part.slice(1,-1).split('|');const pos=bad.length;targets.push({correct,wrong,start:pos,rule:wordRule(correct,id)});normal+=correct;bad+=wrong;}else{normal+=part;bad+=part;}}const tokens=textTokens(bad);targets=targets.map(t=>({...t,index:tokens.findIndex(x=>x.word&&tokens.slice(0,x.index).reduce((n,y)=>n+y.value.length,0)===t.start)}));return{id:id+'-text-'+i,block:id,kind:'text',title,text:bad,normal,tokens,targets};}
+function wordRule(w,id){const found=WORDS[id]?.find(x=>lower(x.word)===lower(w));return found?.rule||'En este contexto, la forma correcta es «'+w+'». Consulta las pistas del bloque para relacionarla con una palabra conocida.';}
+function accentRule(word,notes={}){const exact=notes[word]||notes[lower(word)];if(exact)return exact;const found=ACCENTS.find(a=>lower(a.word)===lower(word));if(found)return found.rule;if(['título','público'].includes(lower(word)))return 'Es esdrújula: todas las esdrújulas llevan tilde.';if(/[íúÍÚ][aeoAEO]|[aeoAEO][íúÍÚ]/u.test(word))return'La vocal cerrada tónica (í, ú) forma hiato con una vocal abierta y lleva tilde.';return'Es aguda y termina en '+(/[ns]$/iu.test(word)?'n o s':'vocal')+': lleva tilde.';}
+function makeAccentText(i){const data=ACCENT_TEXTS[i],tokens=textTokens(data.text);return{id:'tildes-text-'+i,block:'tildes',kind:'accent-text',title:data.title,normal:data.text,text:stripAcute(data.text),tokens:tokens.map(t=>({...t,correct:t.value,value:stripAcute(t.value)})),targets:tokens.filter(t=>t.word&&acute(t.value)).map(t=>({index:t.index,correct:t.value,wrong:stripAcute(t.value),rule:accentRule(t.value,data.notes)})),tier:data.tier};}
+function baseWordPool(block,level){if(block==='tildes'){if(level===1)return ACCENTS.filter(w=>w.tier===1).map(w=>({...w,id:w.id+'-classify',source:w.id,kind:'classify'}));if(level===2)return ACCENTS.filter(w=>w.tier<=2).map(w=>({...w,id:w.id+'-accent',source:w.id,kind:'accent'}));return ACCENT_TEXTS.map((t,i)=>({t,i})).filter(x=>level===3?x.t.tier===3:x.t.tier===4).map(x=>makeAccentText(x.i));}if(level===4)return TEXTS[block].map((_,i)=>makeLetterText(block,i));const words=WORDS[block].filter(w=>level===1?w.tier===1:level===2?w.tier<=2:w.tier>=2);return words.map(w=>letterExercise(w,['','choice','fill','repair'][level]));}
+function quickVowels(ref,value,disabled=false){return`<div class="quick-vowels" data-quick-ref="${ref}"><span>Tildes:</span>${[...value].map((c,i)=>vowels.includes(stripAcute(c))?`<button data-action="batch-vowel" data-ref="${ref}" data-letter="${i}" aria-label="Poner o quitar tilde en ${esc(stripAcute(c))}, posición ${i+1}" aria-pressed="${acute(c)}" ${disabled?'disabled':''}>${esc(c)}</button>`:'').join('')}</div>`;}
+function contextHTML(q){return esc(q.sentence||'').replace('{w}','<strong>'+esc(['choice','fill'].includes(q.kind)?q.pre+'…'+q.post:q.wrong||q.word)+'</strong>');}
+function inputFor(ref,value,label,disabled=false,short=false){return`<label class="sr-only" for="batch-${ref}">${esc(label)}</label><input id="batch-${ref}" class="batch-input ${short?'letters-only':''}" data-batch-input="${ref}" value="${esc(value??'')}" maxlength="${short?3:80}" autocomplete="off" autocapitalize="none" spellcheck="false" ${disabled?'disabled':''}>`;}
+function wordCard(q,index,number){
+  const s=q.state,done=s.checked&&s.fixed,wrong=s.checked&&!s.fixed,ref='w-'+index;
+  let fields='';
+  if(q.kind==='classify'){
+    const parts=q.syllables.split('-'),tonic=parts.length-({'Aguda':1,'Llana':2,'Esdrújula':3,'Sobresdrújula':4}[q.accentKind]||1);
+    fields=`<div class="batch-syllables">${parts.map((p,i)=>'<span class="'+(i===tonic?'tonic':'')+'">'+esc(p)+'</span>').join('·')}</div><label class="sr-only" for="batch-${ref}">Clasifica ${esc(q.word)}</label><select id="batch-${ref}" data-batch-input="${ref}" ${done?'disabled':''}><option value="">Elige el tipo</option>${['Aguda','Llana','Esdrújula'].map(a=>'<option '+(s.answer===a?'selected':'')+'>'+a+'</option>').join('')}</select>`;
+  }else if(q.kind==='choice'){
+    fields=`<div class="batch-gap">${esc(q.pre)}<span>${s.answer===null?'…':esc(s.answer)||'∅'}</span>${esc(q.post)}</div><div class="batch-choices">${byId(q.block).options.map(a=>`<button data-action="batch-choice" data-q="${index}" data-value="${esc(a)}" class="${s.answer===a?'selected':''}" aria-pressed="${s.answer===a}" ${done?'disabled':''}>${a?esc(a):'Sin H'}</button>`).join('')}</div>`;
+  }else if(q.kind==='fill'){
+    fields=`<div class="batch-fill"><span>${esc(q.pre)}</span>${inputFor(ref,s.answer,'Letras que faltan en '+q.pre+'…'+q.post,done,true)}<span>${esc(q.post)}</span></div>${q.block==='h'?`<button class="no-h-small ${s.noH?'selected':''}" data-action="batch-no-h" data-q="${index}" ${done?'disabled':''}>Sin H</button>`:''}`;
+  }else{
+    fields=inputFor(ref,s.answer,'Escribe correctamente '+(q.kind==='accent'?stripAcute(q.word):q.wrong||q.word),done);
+    if(q.kind==='accent')fields+=quickVowels(ref,s.answer||'',done);
+  }
+  return`<article class="batch-word ${done?'is-right':wrong?'is-wrong':''}" data-word-card="${index}"><div class="batch-card-top"><span>${String(number).padStart(2,'0')}</span><span>${done?'✓ Correcta':wrong?'↺ Revisa':esc(byId(q.block).title)}</span></div>${q.sentence&&q.kind!=='classify'?'<p class="batch-context">'+contextHTML(q)+'</p>':''}${fields}<div class="batch-card-feedback" aria-live="polite">${wrong?`<span>Esta respuesta necesita revisión.</span><button data-action="word-hint" data-q="${index}">Ver explicación</button>`:done?'<span>✓ Lista</span>':'<span>'+(['accent','repair','spell'].includes(q.kind)?'Puedes borrar y escribir en el recuadro.':'Completa esta palabra.')+'</span>'}</div></article>`;
+}
+function newTextHTML(q){
+  const s=q.state,fix=s.stage==='repair',ids=new Set(q.targets.map(t=>t.index));let out='';
+  if(!fix)return`<div class="new-text-panel"><p class="interactive-text">${q.tokens.map((t,i)=>t.word?`<button class="word-token ${s.selected.includes(i)?'marked':''}" data-action="text-select" data-index="${i}" aria-pressed="${s.selected.includes(i)}">${esc(t.value)}</button>`:esc(t.value)).join('')}</p><div class="selection-info"><span>${s.selected.length} palabras marcadas</span><button class="text-button" data-action="clear-selection">Quitar marcas</button></div></div>`;
+  const originally=s.firstSelected||s.selected,found=q.targets.filter(t=>originally.includes(t.index)).length,extras=originally.filter(i=>!ids.has(i));
+  out+=`<div class="new-text-panel"><p class="${s.checked&&pageStatus().allFixed?'corrected-text':'interactive-text'}">${s.checked&&pageStatus().allFixed?esc(q.normal):q.tokens.map((t,i)=>{if(!t.word)return esc(t.value);const target=q.targets.find(x=>x.index===i);return target?'<span class="text-target '+(!originally.includes(i)?'missed':'found')+'">'+esc(t.value)+'</span>':esc(t.value);}).join('')}</p><p class="detection-brief">Localizaste ${found} de ${q.targets.length}. ${extras.length?'Había '+extras.length+' palabra'+(extras.length===1?' que ya estaba bien escrita.':'s que ya estaban bien escritas.'):'Las palabras señaladas abajo son las que hay que revisar.'}</p>${extras.length?'<div class="extra-words">'+extras.map(i=>'<span>«'+esc(q.tokens[i].value)+'» ya era correcta.</span>').join('')+'</div>':''}</div>`;
+  out+='<div class="batch-grid text-batch">'+q.targets.map((t,n)=>{const ref='t-'+t.index,done=s.checked&&!!s.fixResults?.[t.index],wrong=s.checked&&!done,value=s.corrections[t.index]??t.wrong;return`<article class="batch-word ${done?'is-right':wrong?'is-wrong':''}"><div class="batch-card-top"><span>${String(n+1).padStart(2,'0')}</span><span>${done?'✓ Correcta':wrong?'↺ Revisa':q.kind==='accent-text'?'Coloca la tilde':'Corrige la palabra'}</span></div>${inputFor(ref,value,'Corrige '+t.wrong,done)}${q.kind==='accent-text'?quickVowels(ref,value,done):''}<div class="batch-card-feedback">${wrong?`<span>Revisa la escritura.</span><button data-action="text-word-hint" data-target="${t.index}">Ver explicación</button>`:done?'✓ Lista':'Edita el recuadro.'}</div></article>`;}).join('')+'</div>';return out;
+}
+function answerComplete(q){const s=q.state;if(s.checked&&s.fixed)return true;if(q.kind==='classify')return !!s.answer;if(q.kind==='choice')return s.answer!==null&&s.answer!==undefined;if(q.kind==='fill')return !!String(s.answer??'').trim()||(q.block==='h'&&s.noH);return !!String(s.answer??'').trim();}
+function correctWord(q){const s=q.state;if(q.kind==='classify')return s.answer===q.accentKind;if(q.kind==='choice'||q.kind==='fill')return lower(s.answer??'')===lower(q.answer);return lower(s.answer??'')===lower(q.word);}
+
+'use strict';
+let session=null, screen='home', selectedBlock=null, lastRef=null;
+const settings={rounds:10,mixedLevel:1};
+function render(){if(screen==='home')renderHome();else if(screen==='block')renderBlock();else if(screen==='play')renderPlay();else renderResult();}
+function goHome(){session=null;screen='home';render();window.scrollTo(0,0);}
+function renderHome(){
+$('#app').innerHTML=`<section class="hero"><div class="hero-copy"><span class="eyebrow"><span class="tiny-dot"></span>JUEGO LIBRE</span><h1>Cada palabra<br>es una <em>pista.</em></h1><p>Elige un bloque y un nivel. Escribe, comprueba la tanda y corrige lo que necesite otra oportunidad.</p><div class="hero-meta"><span>9 bloques</span><span>4 niveles</span><span>A tu ritmo</span></div></div><aside class="session-card free-options"><div class="case-stamp">PREPARA TU PARTIDA</div><div class="session-heading">Hoy eliges tú.</div><p>Una partida nueva cada vez.</p><label for="rounds">Tamaño de la tanda</label><select id="rounds" data-setting="rounds">${[6,10,15].map(n=>`<option value="${n}" ${settings.rounds===n?'selected':''}>${n===6?'Breve':n===10?'Habitual':'Larga'} · hasta ${n} palabras</option>`).join('')}</select><label for="mixed-level">Nivel para la tanda mixta</label><select id="mixed-level" data-setting="mixedLevel">${[1,2,3,4].map(l=>`<option value="${l}" ${settings.mixedLevel===l?'selected':''}>Nivel ${l}${l===4?' · textos':''}</option>`).join('')}</select><button class="primary wide" data-action="mixed">Jugar una tanda mixta <span>→</span></button></aside></section><section class="blocks-section"><div class="section-intro"><div><span class="eyebrow">ELIGE TU INVESTIGACIÓN</span><h2>¿Qué practicamos hoy?</h2></div><button class="text-button" data-action="guide">Cómo se juega ↗</button></div><div class="block-grid">${BLOCKS.map((b,i)=>`<button class="block-card" style="--accent:${b.color}" data-action="block" data-id="${b.id}"><div class="block-top"><span class="block-icon">${esc(b.icon)}</span><span class="case-number">CASO ${String(i+1).padStart(2,'0')}</span></div><h3>${esc(b.title)}</h3><p>${esc(b.desc)}</p><div class="block-foot"><span>Elige entre 4 niveles</span><span class="circle-arrow">→</span></div></button>`).join('')}</div><p class="quiet-note"><span class="note-star">✦</span> Juego libre: al cerrar o recargar la página, la partida termina.</p></section>`;
+}
+function levelName(id,l){return id==='tildes'?['','La sílaba tónica','Tildes en palabras','Tildes en textos','Textos con más pistas'][l]:['','Con opciones','De memoria','Corrige palabras','Revisión de textos'][l];}
+function levelDetail(id,l){return id==='tildes'?['','Clasifica una tanda de agudas, llanas y esdrújulas.','Edita las palabras y coloca las tildes. Comprueba todas a la vez.','Localiza las palabras que necesitan tilde y corrígelas.','Textos con hiatos, tildes diacríticas e interrogativos.'][l]:['','Completa palabras frecuentes eligiendo las letras.','Escribe las letras que faltan sin ver opciones.','Corrige palabras dentro de varias frases.','Encuentra los errores de un texto y repara las palabras.'][l];}
+function renderBlock(){const b=byId(selectedBlock);if(!b){goHome();return;}$('#app').innerHTML=`<section class="block-page"><button class="back" data-action="home">← Todos los bloques</button><div class="block-title"><span class="large-icon" style="--accent:${b.color}">${esc(b.icon)}</span><div><span class="eyebrow">JUEGO LIBRE · ${esc(b.label)}</span><h1>${esc(b.title)}</h1><p>${esc(b.desc)}</p></div></div><div class="section-intro"><div><h2>Elige tu nivel</h2><p>Puedes jugar directamente en cualquiera.</p></div><button class="secondary" data-action="lesson" data-id="${b.id}">Ver las pistas</button></div><div class="levels-grid">${[1,2,3,4].map(l=>`<article class="level-card"><div class="level-meta"><span>NIVEL ${l}</span></div><h3>${levelName(b.id,l)}</h3><p>${esc(levelDetail(b.id,l))}</p><button class="primary wide" data-action="start" data-id="${b.id}" data-level="${l}">Jugar <span>→</span></button></article>`).join('')}</div></section>`;}
+function poolFor(block,level){const pool=baseWordPool(block,level);return pool.map(q=>q.kind==='classify'?{...q,accentKind:WORD_INDEX[q.source].kind}:q);}
+function chooseQuestions(block,level,count){const pool=shuffle(poolFor(block,level)),selected=pool.slice(0,count);if(level===1&&block!=='tildes')for(const option of byId(block).options){if(selected.some(q=>q.answer===option))continue;const candidate=pool.find(q=>q.answer===option);if(!candidate)continue;let replace=-1;for(let i=selected.length-1;i>=0;i--)if(selected.filter(x=>x.answer===selected[i].answer).length>1){replace=i;break;}if(replace>=0)selected[replace]=candidate;}return selected;}
+function startNew(block,level,mixed=false){
+let questions=[];const text=block==='tildes'?level>=3:level===4;
+if(mixed){const order=shuffle(BLOCKS);const count=level===4?Math.max(2,Math.ceil(settings.rounds/4)):settings.rounds;for(let i=0;i<count;i++){const b=order[i%order.length],pool=shuffle(poolFor(b.id,level)).filter(q=>!questions.some(x=>x.id===q.id));if(pool[0])questions.push(pool[0]);}}
+else questions=chooseQuestions(block,level,text?Math.max(2,Math.ceil(settings.rounds/3)):settings.rounds);
+questions=questions.map(q=>({...q,state:{stage:'answer',selected:[],answer:q.kind==='accent'?stripAcute(q.word):['repair','spell'].includes(q.kind)?q.wrong||q.word:null,corrections:{},checked:false,fixed:false}}));
+const pages=[];let group=[];const flush=()=>{if(group.length){pages.push({type:'words',indices:group});group=[];}};questions.forEach((q,i)=>{if(isText(q)){flush();pages.push({type:'text',indices:[i]});}else group.push(i);});flush();
+session={block,level,mixed,questions,pages,page:0,index:pages[0].indices[0],correct:0,total:0};screen='play';render();window.scrollTo(0,0);
+}
+function currentPage(){return session.pages[session.page];}
+function qNow(){return session.questions[session.index];}
+function pageStatus(){const p=currentPage();if(p.type==='text'){const q=qNow(),s=q.state;return{checked:!!s.checked,allFixed:!!s.checked&&q.targets.every(t=>s.fixResults?.[t.index])};}const qs=p.indices.map(i=>session.questions[i]);return{checked:qs.every(q=>q.state.checked),allFixed:qs.every(q=>q.state.checked&&q.state.fixed)};}
+function summary(){const qs=currentPage().indices.map(i=>session.questions[i]);if(!qs.every(q=>q.state.checked))return'';const c=qs.reduce((n,q)=>n+q.state.correct,0),t=qs.reduce((n,q)=>n+q.state.total,0),done=pageStatus().allFixed;return`<div class="batch-summary ${done?'all-done':''}" role="status"><strong>Primer intento: ${c}/${t}</strong><span>${done?'Toda la tanda revisada. ¡Buen trabajo!':'Corrige las rojas. Puedes abrir su explicación si la necesitas.'}</span></div>`;}
+function toolbar(){const p=currentPage(),q=qNow(),s=pageStatus();if(p.type==='text'&&q.state.stage==='answer')return'<span class="answer-note">Puedes marcar y desmarcar antes de seguir.</span><button class="primary" data-action="prepare-text">Preparar corrección →</button>';if(!s.checked)return'<span class="answer-note">Una sola comprobación para toda esta pantalla.</span><button class="primary" data-action="check">Comprobar toda la tanda ✓</button>';if(!s.allFixed)return'<span class="answer-note">Revisa las respuestas rojas y compruébalas juntas.</span><div class="toolbar-buttons"><button class="primary" data-action="check">Comprobar correcciones ✓</button><button class="text-button" data-action="finish">Terminar tanda</button></div>';return`<span class="batch-done">✓ Todas las palabras revisadas</span><div class="toolbar-buttons">${session.page+1<session.pages.length?'<button class="primary" data-action="next">Siguiente pantalla →</button>':'<button class="primary" data-action="again">Otra tanda del mismo nivel →</button>'}<button class="secondary" data-action="finish">Ver resultado</button></div>`;}
+function renderPlay(){const p=currentPage(),q=qNow();const allAccent=p.type==='words'&&p.indices.every(i=>session.questions[i].kind==='accent');$('#app').innerHTML=`<section class="batch-page"><div class="play-top"><button class="back" data-action="home">← Volver a los bloques</button><div class="play-tools"><span class="block-tag">${session.mixed?'Tanda mixta':esc(byId(session.block).title)} · Nivel ${session.level}</span>${!session.mixed?`<button class="text-button" data-action="lesson" data-id="${session.block}">Pistas del bloque</button>`:''}</div></div><div class="batch-page-heading"><div><span class="eyebrow">JUEGO LIBRE · ESCRIBE · COMPRUEBA · REVISA</span><h1 id="exercise-title">${esc(p.type==='text'?q.title:allAccent?'Una tanda de tildes':'Todas las palabras, una tanda')}</h1><p>${p.type==='text'?q.state.stage==='answer'?(q.kind==='accent-text'?'Marca las palabras que necesitan tilde. Después podrás escribirlas correctamente.':'Marca las palabras mal escritas y después corrígelas.'):'Edita las palabras y comprueba toda la tanda.':allAccent?'Escribe las palabras con sus tildes. También puedes tocar las vocales.':'Resuelve todas las palabras y comprueba la tanda de una vez.'}</p></div><span class="sheet-count">${session.page+1}/${session.pages.length}<small>pantallas</small></span></div>${p.type==='text'?newTextHTML(q):'<div class="batch-grid">'+p.indices.map((i,n)=>wordCard(session.questions[i],i,n+1)).join('')+'</div>'}${summary()}<div class="batch-tools"><span>Teclas de apoyo:</span>${['á','é','í','ó','ú','ü','ñ'].map(c=>`<button data-action="special" data-value="${c}">${c}</button>`).join('')}<small>Selecciona una letra del recuadro para sustituirla.</small></div><div class="batch-toolbar">${toolbar()}</div></section>`;}
+function refData(ref){const m=String(ref).match(/^([wt])-(\d+)$/);if(!m||!session)return null;const i=Number(m[2]);if(m[1]==='w'){const q=session.questions[i];return q?{q,state:q.state,index:i,text:false}:null;}const q=qNow(),target=q.targets.find(t=>t.index===i);return target?{q,state:q.state,index:i,target,text:true}:null;}
+function refValue(ref){const d=refData(ref);return d?(d.text?d.state.corrections[d.index]??d.target.wrong:d.state.answer??''):'';}
+function setRefValue(ref,value,typed=false){const d=refData(ref);if(!d)return;if(d.text)d.state.corrections[d.index]=value;else{d.state.answer=value;if(d.q.kind==='fill'&&(typed||String(value).length))d.state.noH=false;}}
+function syncInputs(){document.querySelectorAll('[data-batch-input]').forEach(input=>{if(!input.disabled)setRefValue(input.dataset.batchInput,input.value);});}
+function check(){syncInputs();const p=currentPage();if(p.type==='text'){checkText();return;}const qs=p.indices.map(i=>session.questions[i]),missing=qs.find(q=>!answerComplete(q));if(missing){toast('Completa todas las respuestas antes de comprobar.');$('#batch-w-'+session.questions.indexOf(missing))?.focus();return;}for(const q of qs){const s=q.state,ok=correctWord(q);if(!s.checked){s.correct=ok?1:0;s.total=1;session.correct+=s.correct;session.total++;s.checked=true;}s.fixed=ok;}renderPlay();$('.batch-summary')?.scrollIntoView({block:'nearest',behavior:'smooth'});}
+function prepareText(){const q=qNow(),s=q.state;s.firstSelected=[...s.selected];s.stage='repair';for(const t of q.targets)s.corrections[t.index]=t.wrong;renderPlay();}
+function checkText(){const q=qNow(),s=q.state;if(s.stage==='answer'){prepareText();return;}if(q.targets.some(t=>!String(s.corrections[t.index]??'').trim())){toast('Completa las palabras antes de comprobar.');return;}const first=!s.checked;s.fixResults={};if(first){s.correct=0;s.total=0;}for(const t of q.targets){const ok=lower(s.corrections[t.index]??t.wrong)===lower(t.correct);s.fixResults[t.index]=ok;if(first){s.correct+=ok&&s.firstSelected.includes(t.index)?1:0;s.total++;}}if(first){const ids=new Set(q.targets.map(t=>t.index));s.total+=s.firstSelected.filter(i=>!ids.has(i)).length;session.correct+=s.correct;session.total+=s.total;s.checked=true;}renderPlay();$('.batch-summary')?.scrollIntoView({block:'nearest',behavior:'smooth'});}
+function next(){if(!pageStatus().checked)return;if(session.page+1<session.pages.length){session.page++;session.index=currentPage().indices[0];renderPlay();window.scrollTo(0,0);}else finish();}
+function finish(){if(!session.total){toast('Comprueba una tanda antes de ver el resultado.');return;}screen='result';render();window.scrollTo(0,0);}
+function again(){startNew(session.block,session.level,session.mixed);}
+function renderResult(){$('#app').innerHTML=`<section class="result-page"><div class="result-seal">${ICON}</div><span class="eyebrow">TANDA TERMINADA</span><h1>¡Una buena<br>tanda de <em>pistas!</em></h1><div class="result-stats free-result"><div><strong>${session.correct}/${session.total}</strong><span>Aciertos en el primer intento</span></div><div><strong>${session.questions.filter(q=>q.state.checked).length}</strong><span>Actividades comprobadas</span></div></div><p>Elige otra tanda del mismo nivel o cambia de bloque.</p><div class="result-actions"><button class="primary" data-action="again">Otra tanda →</button><button class="secondary" data-action="home">Elegir bloque y nivel</button></div></section>`;}
+function modal(title,body){$('#modal-title').textContent=title;$('#modal-body').innerHTML=body;if(!$('#dialog').open)$('#dialog').showModal();}
+function closeModal(){$('#dialog').close();}
+function lesson(id){modal('Pistas · '+byId(id).title,'<div class="lesson-list">'+LESSONS[id].map(([t,p])=>'<div><h3>'+esc(t)+'</h3><p>'+esc(p)+'</p></div>').join('')+'</div><button class="primary" data-action="close-modal">Seguir jugando →</button>');}
+function explain(word,rule,category){modal('La pista de esta palabra',`<div class="word-explanation"><span class="eyebrow">REVISA Y VUELVE A PROBAR</span><p class="explanation-answer">${esc(word)}</p><p>${esc(rule)}</p>${category?'<p>Es una palabra <strong>'+esc(category.toLowerCase())+'</strong>.</p>':''}</div><button class="primary" data-action="close-modal">Volver a la tanda →</button>`);}
+function guide(){modal('Cómo jugar',`<div class="lesson-list"><div><h3>Elige bloque y nivel</h3><p>Hay nueve bloques y cuatro dificultades. Tú decides dónde practicar. También puedes elegir una tanda mixta.</p></div><div><h3>Una comprobación para todas</h3><p>Completa la tanda y pulsa «Comprobar toda la tanda». Las correctas quedan en verde y las rojas se pueden corregir. Abre «Ver explicación» cuando la necesites.</p></div><div><h3>Las tildes</h3><p>En Acentuación, nivel 2, escribe las palabras con el teclado o toca las vocales para poner y quitar sus tildes. Compruébalas todas juntas.</p></div><div><h3>Una partida nueva cada vez</h3><p>Esta versión es de juego libre, sin perfiles ni archivos de avance. Al recargar o cerrar la página se empieza de cero.</p></div></div><button class="primary" data-action="close-modal">Entendido</button>`);}
+function toast(message){$('#toast').textContent=message;$('#toast').classList.add('visible');clearTimeout(toast.timer);toast.timer=setTimeout(()=>$('#toast').classList.remove('visible'),3500);}
+function downloadApp(){const doc=new DOMParser().parseFromString('<!DOCTYPE html>\n'+document.documentElement.outerHTML,'text/html');doc.querySelector('#app').innerHTML='';doc.querySelector('#modal-body').innerHTML='';doc.querySelector('#dialog').removeAttribute('open');doc.querySelector('#toast').textContent='';doc.querySelector('#toast').classList.remove('visible');const url=URL.createObjectURL(new Blob(['<!DOCTYPE html>\n'+doc.documentElement.outerHTML],{type:'text/html;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='Detectives_ortografia_juego_libre.html';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+async function fullscreen(){try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen();}catch{toast('Puedes ampliar el juego con la pantalla completa de tu navegador.');}}
+document.addEventListener('click',e=>{
+const b=e.target.closest('[data-action]');if(!b||b.disabled)return;const a=b.dataset.action;
+if(a==='home'){closeModal();goHome();return;}if(a==='guide'){guide();return;}if(a==='lesson'){lesson(b.dataset.id);return;}if(a==='close-modal'){closeModal();return;}if(a==='download-app'){downloadApp();return;}if(a==='fullscreen'){fullscreen();return;}
+if(a==='block'){selectedBlock=b.dataset.id;session=null;screen='block';render();window.scrollTo(0,0);return;}if(a==='start'){startNew(b.dataset.id,Number(b.dataset.level));return;}if(a==='mixed'){startNew('mixed',settings.mixedLevel,true);return;}if(!session||screen!=='play'&&a!=='again')return;
+if(a==='check'){check();return;}if(a==='finish'){finish();return;}if(a==='next'){next();return;}if(a==='again'){again();return;}if(a==='prepare-text'){prepareText();return;}
+if(a==='batch-choice'){const q=session.questions[Number(b.dataset.q)];q.state.answer=b.dataset.value;renderPlay();return;}
+if(a==='batch-no-h'){const s=session.questions[Number(b.dataset.q)].state;s.answer='';s.noH=true;renderPlay();return;}
+if(a==='text-select'){const s=qNow().state,i=Number(b.dataset.index);s.selected=s.selected.includes(i)?s.selected.filter(x=>x!==i):[...s.selected,i];renderPlay();return;}
+if(a==='clear-selection'){qNow().state.selected=[];renderPlay();return;}
+if(a==='word-hint'){const q=session.questions[Number(b.dataset.q)];explain(q.word,q.rule,q.accentKind);return;}
+if(a==='text-word-hint'){const t=qNow().targets.find(t=>t.index===Number(b.dataset.target));if(t)explain(t.correct,t.rule);return;}
+if(a==='batch-vowel'){syncInputs();const ref=b.dataset.ref,value=refValue(ref),i=Number(b.dataset.letter),c=value[i];if(!c)return;setRefValue(ref,value.slice(0,i)+(acute(c)?stripAcute(c):addAcute(c))+value.slice(i+1));renderPlay();return;}
+if(a==='special'){const ref=document.activeElement?.dataset?.batchInput||lastRef,input=ref?$('#batch-'+ref):null;if(!input||input.disabled||input.tagName==='SELECT'){toast('Selecciona una letra en una palabra para sustituirla.');return;}let start=input.selectionStart??input.value.length,end=input.selectionEnd??start;const c=b.dataset.value;if(start===end&&start>0&&stripAcute(input.value[start-1])===stripAcute(c))start--;input.value=input.value.slice(0,start)+c+input.value.slice(end);setRefValue(ref,input.value,true);input.focus();input.setSelectionRange(start+1,start+1);updateQuick(ref,input.value);}
+});
+function updateQuick(ref,value){const el=document.querySelector('[data-quick-ref="'+ref+'"]');if(el)el.outerHTML=quickVowels(ref,value,false);}
+document.addEventListener('focusin',e=>{if(e.target.dataset?.batchInput)lastRef=e.target.dataset.batchInput;});
+document.addEventListener('input',e=>{const ref=e.target.dataset?.batchInput;if(!ref)return;setRefValue(ref,e.target.value,true);if(refData(ref)?.q.kind==='accent'||refData(ref)?.text&&refData(ref)?.q.kind==='accent-text')updateQuick(ref,e.target.value);});
+document.addEventListener('change',e=>{if(e.target.dataset?.batchInput)setRefValue(e.target.dataset.batchInput,e.target.value,true);if(e.target.dataset?.setting){const key=e.target.dataset.setting,n=Number(e.target.value);if(key==='rounds'&&[6,10,15].includes(n)||key==='mixedLevel'&&[1,2,3,4].includes(n))settings[key]=n;}});
+document.addEventListener('keydown',e=>{if(e.key!=='Enter'||!e.target.dataset?.batchInput||$('#dialog').open)return;e.preventDefault();const inputs=[...document.querySelectorAll('[data-batch-input]:not(:disabled)')],i=inputs.indexOf(e.target);if(inputs[i+1])inputs[i+1].focus();else document.querySelector('[data-action="check"]')?.focus();});
+render();
+</script></body></html>
